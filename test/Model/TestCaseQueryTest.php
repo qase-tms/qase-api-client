@@ -81,6 +81,15 @@ class TestCaseQueryTest extends TestCase
     }
 
     /**
+     * Test attribute "testCaseId"
+     */
+    public function testPropertyTestCaseId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "id"
      */
     public function testPropertyId()

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**testCaseId** | **int** |  |
 **id** | **int** |  | [optional]
 **position** | **int** |  | [optional]
 **title** | **string** |  | [optional]

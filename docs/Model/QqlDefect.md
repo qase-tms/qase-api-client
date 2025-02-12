@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**defectId** | **int** |  |
 **id** | **int** |  | [optional]
 **title** | **string** |  | [optional]
 **actualResult** | **string** |  | [optional]

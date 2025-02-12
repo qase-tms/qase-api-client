@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**planId** | **int** |  |
 **id** | **int** |  | [optional]
 **title** | **string** |  | [optional]
 **description** | **string** |  | [optional]

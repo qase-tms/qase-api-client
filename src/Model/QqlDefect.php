@@ -58,6 +58,7 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'defectId' => 'int',
         'id' => 'int',
         'title' => 'string',
         'actualResult' => 'string',
@@ -83,6 +84,7 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'defectId' => 'int64',
         'id' => 'int64',
         'title' => null,
         'actualResult' => null,
@@ -106,6 +108,7 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'defectId' => false,
         'id' => false,
         'title' => false,
         'actualResult' => false,
@@ -209,6 +212,7 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'defectId' => 'defect_id',
         'id' => 'id',
         'title' => 'title',
         'actualResult' => 'actual_result',
@@ -232,6 +236,7 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'defectId' => 'setDefectId',
         'id' => 'setId',
         'title' => 'setTitle',
         'actualResult' => 'setActualResult',
@@ -255,6 +260,7 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'defectId' => 'getDefectId',
         'id' => 'getId',
         'title' => 'getTitle',
         'actualResult' => 'getActualResult',
@@ -329,6 +335,7 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('defectId', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('actualResult', $data ?? [], null);
@@ -373,6 +380,9 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['defectId'] === null) {
+            $invalidProperties[] = "'defectId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -387,6 +397,33 @@ class QqlDefect implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets defectId
+     *
+     * @return int
+     */
+    public function getDefectId()
+    {
+        return $this->container['defectId'];
+    }
+
+    /**
+     * Sets defectId
+     *
+     * @param int $defectId defectId
+     *
+     * @return self
+     */
+    public function setDefectId($defectId)
+    {
+        if (is_null($defectId)) {
+            throw new \InvalidArgumentException('non-nullable defectId cannot be null');
+        }
+        $this->container['defectId'] = $defectId;
+
+        return $this;
+    }
 
     /**
      * Gets id

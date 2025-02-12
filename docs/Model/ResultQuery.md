@@ -1,11 +1,11 @@
-# # Result
+# # ResultQuery
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**resultHash** | **string** |  |
 **hash** | **string** |  | [optional]
-**resultHash** | **string** |  | [optional]
 **comment** | **string** |  | [optional]
 **stacktrace** | **string** |  | [optional]
 **runId** | **int** |  | [optional]

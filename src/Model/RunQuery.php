@@ -1,6 +1,6 @@
 <?php
 /**
- * Run
+ * RunQuery
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * Run Class Doc Comment
+ * RunQuery Class Doc Comment
  *
  * @category Class
  * @package  Qase\APIClientV1
@@ -41,7 +41,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Run implements ModelInterface, ArrayAccess, \JsonSerializable
+class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Run';
+    protected static $openAPIModelName = 'RunQuery';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
         'runId' => 'int',
+        'id' => 'int',
         'title' => 'string',
         'description' => 'string',
         'status' => 'int',
@@ -85,8 +85,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
         'runId' => 'int64',
+        'id' => 'int64',
         'title' => null,
         'description' => null,
         'status' => null,
@@ -110,8 +110,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'runId' => false,
+        'id' => false,
         'title' => false,
         'description' => true,
         'status' => false,
@@ -215,8 +215,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'runId' => 'run_id',
+        'id' => 'id',
         'title' => 'title',
         'description' => 'description',
         'status' => 'status',
@@ -240,8 +240,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'runId' => 'setRunId',
+        'id' => 'setId',
         'title' => 'setTitle',
         'description' => 'setDescription',
         'status' => 'setStatus',
@@ -265,8 +265,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'runId' => 'getRunId',
+        'id' => 'getId',
         'title' => 'getTitle',
         'description' => 'getDescription',
         'status' => 'getStatus',
@@ -341,8 +341,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('runId', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
@@ -387,6 +387,9 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['runId'] === null) {
+            $invalidProperties[] = "'runId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -401,6 +404,33 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets runId
+     *
+     * @return int
+     */
+    public function getRunId()
+    {
+        return $this->container['runId'];
+    }
+
+    /**
+     * Sets runId
+     *
+     * @param int $runId runId
+     *
+     * @return self
+     */
+    public function setRunId($runId)
+    {
+        if (is_null($runId)) {
+            throw new \InvalidArgumentException('non-nullable runId cannot be null');
+        }
+        $this->container['runId'] = $runId;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -425,33 +455,6 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets runId
-     *
-     * @return int|null
-     */
-    public function getRunId()
-    {
-        return $this->container['runId'];
-    }
-
-    /**
-     * Sets runId
-     *
-     * @param int|null $runId runId
-     *
-     * @return self
-     */
-    public function setRunId($runId)
-    {
-        if (is_null($runId)) {
-            throw new \InvalidArgumentException('non-nullable runId cannot be null');
-        }
-        $this->container['runId'] = $runId;
 
         return $this;
     }

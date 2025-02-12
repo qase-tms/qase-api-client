@@ -58,6 +58,12 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
+        'runId' => 'int',
+        'planId' => 'int',
+        'resultHash' => 'string',
+        'requirementId' => 'int',
+        'testCaseId' => 'int',
+        'defectId' => 'int',
         'id' => 'int',
         'title' => 'string',
         'description' => 'string',
@@ -73,11 +79,9 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'customFields' => '\Qase\APIClientV1\Model\CustomFieldValue[]',
         'tags' => '\Qase\APIClientV1\Model\TagValue[]',
         'cases' => 'int[]',
-        'planId' => 'int',
         'hash' => 'string',
         'comment' => 'string',
         'stacktrace' => 'string',
-        'runId' => 'int',
         'caseId' => 'int',
         'steps' => '\Qase\APIClientV1\Model\TestStep[]',
         'isApiResult' => 'bool',
@@ -116,6 +120,12 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'runId' => 'int64',
+        'planId' => 'int64',
+        'resultHash' => null,
+        'requirementId' => 'int64',
+        'testCaseId' => 'int64',
+        'defectId' => 'int64',
         'id' => 'int64',
         'title' => null,
         'description' => null,
@@ -131,11 +141,9 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'customFields' => null,
         'tags' => null,
         'cases' => 'int64',
-        'planId' => 'int64',
         'hash' => null,
         'comment' => null,
         'stacktrace' => null,
-        'runId' => 'int64',
         'caseId' => 'int64',
         'steps' => null,
         'isApiResult' => null,
@@ -172,6 +180,12 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'runId' => false,
+        'planId' => false,
+        'resultHash' => false,
+        'requirementId' => false,
+        'testCaseId' => false,
+        'defectId' => false,
         'id' => false,
         'title' => false,
         'description' => true,
@@ -187,11 +201,9 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'customFields' => false,
         'tags' => false,
         'cases' => false,
-        'planId' => true,
         'hash' => false,
         'comment' => true,
         'stacktrace' => true,
-        'runId' => false,
         'caseId' => false,
         'steps' => false,
         'isApiResult' => false,
@@ -308,6 +320,12 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
+        'runId' => 'run_id',
+        'planId' => 'plan_id',
+        'resultHash' => 'result_hash',
+        'requirementId' => 'requirement_id',
+        'testCaseId' => 'test_case_id',
+        'defectId' => 'defect_id',
         'id' => 'id',
         'title' => 'title',
         'description' => 'description',
@@ -323,11 +341,9 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'customFields' => 'custom_fields',
         'tags' => 'tags',
         'cases' => 'cases',
-        'planId' => 'plan_id',
         'hash' => 'hash',
         'comment' => 'comment',
         'stacktrace' => 'stacktrace',
-        'runId' => 'run_id',
         'caseId' => 'case_id',
         'steps' => 'steps',
         'isApiResult' => 'is_api_result',
@@ -364,6 +380,12 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
+        'runId' => 'setRunId',
+        'planId' => 'setPlanId',
+        'resultHash' => 'setResultHash',
+        'requirementId' => 'setRequirementId',
+        'testCaseId' => 'setTestCaseId',
+        'defectId' => 'setDefectId',
         'id' => 'setId',
         'title' => 'setTitle',
         'description' => 'setDescription',
@@ -379,11 +401,9 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'customFields' => 'setCustomFields',
         'tags' => 'setTags',
         'cases' => 'setCases',
-        'planId' => 'setPlanId',
         'hash' => 'setHash',
         'comment' => 'setComment',
         'stacktrace' => 'setStacktrace',
-        'runId' => 'setRunId',
         'caseId' => 'setCaseId',
         'steps' => 'setSteps',
         'isApiResult' => 'setIsApiResult',
@@ -420,6 +440,12 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
+        'runId' => 'getRunId',
+        'planId' => 'getPlanId',
+        'resultHash' => 'getResultHash',
+        'requirementId' => 'getRequirementId',
+        'testCaseId' => 'getTestCaseId',
+        'defectId' => 'getDefectId',
         'id' => 'getId',
         'title' => 'getTitle',
         'description' => 'getDescription',
@@ -435,11 +461,9 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'customFields' => 'getCustomFields',
         'tags' => 'getTags',
         'cases' => 'getCases',
-        'planId' => 'getPlanId',
         'hash' => 'getHash',
         'comment' => 'getComment',
         'stacktrace' => 'getStacktrace',
-        'runId' => 'getRunId',
         'caseId' => 'getCaseId',
         'steps' => 'getSteps',
         'isApiResult' => 'getIsApiResult',
@@ -527,6 +551,12 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('runId', $data ?? [], null);
+        $this->setIfExists('planId', $data ?? [], null);
+        $this->setIfExists('resultHash', $data ?? [], null);
+        $this->setIfExists('requirementId', $data ?? [], null);
+        $this->setIfExists('testCaseId', $data ?? [], null);
+        $this->setIfExists('defectId', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
@@ -542,11 +572,9 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         $this->setIfExists('customFields', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('cases', $data ?? [], null);
-        $this->setIfExists('planId', $data ?? [], null);
         $this->setIfExists('hash', $data ?? [], null);
         $this->setIfExists('comment', $data ?? [], null);
         $this->setIfExists('stacktrace', $data ?? [], null);
-        $this->setIfExists('runId', $data ?? [], null);
         $this->setIfExists('caseId', $data ?? [], null);
         $this->setIfExists('steps', $data ?? [], null);
         $this->setIfExists('isApiResult', $data ?? [], null);
@@ -604,6 +632,24 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
+        if ($this->container['runId'] === null) {
+            $invalidProperties[] = "'runId' can't be null";
+        }
+        if ($this->container['planId'] === null) {
+            $invalidProperties[] = "'planId' can't be null";
+        }
+        if ($this->container['resultHash'] === null) {
+            $invalidProperties[] = "'resultHash' can't be null";
+        }
+        if ($this->container['requirementId'] === null) {
+            $invalidProperties[] = "'requirementId' can't be null";
+        }
+        if ($this->container['testCaseId'] === null) {
+            $invalidProperties[] = "'testCaseId' can't be null";
+        }
+        if ($this->container['defectId'] === null) {
+            $invalidProperties[] = "'defectId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -618,6 +664,168 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets runId
+     *
+     * @return int
+     */
+    public function getRunId()
+    {
+        return $this->container['runId'];
+    }
+
+    /**
+     * Sets runId
+     *
+     * @param int $runId runId
+     *
+     * @return self
+     */
+    public function setRunId($runId)
+    {
+        if (is_null($runId)) {
+            throw new \InvalidArgumentException('non-nullable runId cannot be null');
+        }
+        $this->container['runId'] = $runId;
+
+        return $this;
+    }
+
+    /**
+     * Gets planId
+     *
+     * @return int
+     */
+    public function getPlanId()
+    {
+        return $this->container['planId'];
+    }
+
+    /**
+     * Sets planId
+     *
+     * @param int $planId planId
+     *
+     * @return self
+     */
+    public function setPlanId($planId)
+    {
+        if (is_null($planId)) {
+            throw new \InvalidArgumentException('non-nullable planId cannot be null');
+        }
+        $this->container['planId'] = $planId;
+
+        return $this;
+    }
+
+    /**
+     * Gets resultHash
+     *
+     * @return string
+     */
+    public function getResultHash()
+    {
+        return $this->container['resultHash'];
+    }
+
+    /**
+     * Sets resultHash
+     *
+     * @param string $resultHash resultHash
+     *
+     * @return self
+     */
+    public function setResultHash($resultHash)
+    {
+        if (is_null($resultHash)) {
+            throw new \InvalidArgumentException('non-nullable resultHash cannot be null');
+        }
+        $this->container['resultHash'] = $resultHash;
+
+        return $this;
+    }
+
+    /**
+     * Gets requirementId
+     *
+     * @return int
+     */
+    public function getRequirementId()
+    {
+        return $this->container['requirementId'];
+    }
+
+    /**
+     * Sets requirementId
+     *
+     * @param int $requirementId requirementId
+     *
+     * @return self
+     */
+    public function setRequirementId($requirementId)
+    {
+        if (is_null($requirementId)) {
+            throw new \InvalidArgumentException('non-nullable requirementId cannot be null');
+        }
+        $this->container['requirementId'] = $requirementId;
+
+        return $this;
+    }
+
+    /**
+     * Gets testCaseId
+     *
+     * @return int
+     */
+    public function getTestCaseId()
+    {
+        return $this->container['testCaseId'];
+    }
+
+    /**
+     * Sets testCaseId
+     *
+     * @param int $testCaseId testCaseId
+     *
+     * @return self
+     */
+    public function setTestCaseId($testCaseId)
+    {
+        if (is_null($testCaseId)) {
+            throw new \InvalidArgumentException('non-nullable testCaseId cannot be null');
+        }
+        $this->container['testCaseId'] = $testCaseId;
+
+        return $this;
+    }
+
+    /**
+     * Gets defectId
+     *
+     * @return int
+     */
+    public function getDefectId()
+    {
+        return $this->container['defectId'];
+    }
+
+    /**
+     * Sets defectId
+     *
+     * @param int $defectId defectId
+     *
+     * @return self
+     */
+    public function setDefectId($defectId)
+    {
+        if (is_null($defectId)) {
+            throw new \InvalidArgumentException('non-nullable defectId cannot be null');
+        }
+        $this->container['defectId'] = $defectId;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -1060,40 +1268,6 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
     }
 
     /**
-     * Gets planId
-     *
-     * @return int|null
-     */
-    public function getPlanId()
-    {
-        return $this->container['planId'];
-    }
-
-    /**
-     * Sets planId
-     *
-     * @param int|null $planId planId
-     *
-     * @return self
-     */
-    public function setPlanId($planId)
-    {
-        if (is_null($planId)) {
-            array_push($this->openAPINullablesSetToNull, 'planId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('planId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['planId'] = $planId;
-
-        return $this;
-    }
-
-    /**
      * Gets hash
      *
      * @return string|null
@@ -1184,33 +1358,6 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
             }
         }
         $this->container['stacktrace'] = $stacktrace;
-
-        return $this;
-    }
-
-    /**
-     * Gets runId
-     *
-     * @return int|null
-     */
-    public function getRunId()
-    {
-        return $this->container['runId'];
-    }
-
-    /**
-     * Sets runId
-     *
-     * @param int|null $runId runId
-     *
-     * @return self
-     */
-    public function setRunId($runId)
-    {
-        if (is_null($runId)) {
-            throw new \InvalidArgumentException('non-nullable runId cannot be null');
-        }
-        $this->container['runId'] = $runId;
 
         return $this;
     }

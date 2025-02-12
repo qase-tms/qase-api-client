@@ -1,11 +1,11 @@
-# # Requirement
+# # RequirementQuery
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**requirementId** | **int** |  |
 **id** | **int** |  | [optional]
-**requirementId** | **int** |  | [optional]
 **parentId** | **int** |  | [optional]
 **memberId** | **int** |  | [optional]
 **title** | **string** |  | [optional]
