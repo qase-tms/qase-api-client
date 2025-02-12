@@ -81,6 +81,60 @@ class SearchResponseAllOfResultEntitiesTest extends TestCase
     }
 
     /**
+     * Test attribute "runId"
+     */
+    public function testPropertyRunId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "planId"
+     */
+    public function testPropertyPlanId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "resultHash"
+     */
+    public function testPropertyResultHash()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "requirementId"
+     */
+    public function testPropertyRequirementId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "testCaseId"
+     */
+    public function testPropertyTestCaseId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "defectId"
+     */
+    public function testPropertyDefectId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "id"
      */
     public function testPropertyId()
@@ -216,15 +270,6 @@ class SearchResponseAllOfResultEntitiesTest extends TestCase
     }
 
     /**
-     * Test attribute "planId"
-     */
-    public function testPropertyPlanId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "hash"
      */
     public function testPropertyHash()
@@ -246,15 +291,6 @@ class SearchResponseAllOfResultEntitiesTest extends TestCase
      * Test attribute "stacktrace"
      */
     public function testPropertyStacktrace()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "runId"
-     */
-    public function testPropertyRunId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

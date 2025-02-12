@@ -59,6 +59,7 @@ class Requirement implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'int',
+        'requirementId' => 'int',
         'parentId' => 'int',
         'memberId' => 'int',
         'title' => 'string',
@@ -78,6 +79,7 @@ class Requirement implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
+        'requirementId' => 'int64',
         'parentId' => 'int64',
         'memberId' => 'int64',
         'title' => null,
@@ -95,6 +97,7 @@ class Requirement implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => false,
+        'requirementId' => false,
         'parentId' => true,
         'memberId' => false,
         'title' => false,
@@ -192,6 +195,7 @@ class Requirement implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'requirementId' => 'requirement_id',
         'parentId' => 'parent_id',
         'memberId' => 'member_id',
         'title' => 'title',
@@ -209,6 +213,7 @@ class Requirement implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
+        'requirementId' => 'setRequirementId',
         'parentId' => 'setParentId',
         'memberId' => 'setMemberId',
         'title' => 'setTitle',
@@ -226,6 +231,7 @@ class Requirement implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
+        'requirementId' => 'getRequirementId',
         'parentId' => 'getParentId',
         'memberId' => 'getMemberId',
         'title' => 'getTitle',
@@ -338,6 +344,7 @@ class Requirement implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('requirementId', $data ?? [], null);
         $this->setIfExists('parentId', $data ?? [], null);
         $this->setIfExists('memberId', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
@@ -431,6 +438,33 @@ class Requirement implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets requirementId
+     *
+     * @return int|null
+     */
+    public function getRequirementId()
+    {
+        return $this->container['requirementId'];
+    }
+
+    /**
+     * Sets requirementId
+     *
+     * @param int|null $requirementId requirementId
+     *
+     * @return self
+     */
+    public function setRequirementId($requirementId)
+    {
+        if (is_null($requirementId)) {
+            throw new \InvalidArgumentException('non-nullable requirementId cannot be null');
+        }
+        $this->container['requirementId'] = $requirementId;
 
         return $this;
     }

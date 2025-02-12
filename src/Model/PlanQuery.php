@@ -58,6 +58,7 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'planId' => 'int',
         'id' => 'int',
         'title' => 'string',
         'description' => 'string',
@@ -74,6 +75,7 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'planId' => 'int64',
         'id' => 'int64',
         'title' => null,
         'description' => null,
@@ -88,6 +90,7 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'planId' => false,
         'id' => false,
         'title' => false,
         'description' => true,
@@ -182,6 +185,7 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'planId' => 'plan_id',
         'id' => 'id',
         'title' => 'title',
         'description' => 'description',
@@ -196,6 +200,7 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'planId' => 'setPlanId',
         'id' => 'setId',
         'title' => 'setTitle',
         'description' => 'setDescription',
@@ -210,6 +215,7 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'planId' => 'getPlanId',
         'id' => 'getId',
         'title' => 'getTitle',
         'description' => 'getDescription',
@@ -275,6 +281,7 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('planId', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
@@ -310,6 +317,9 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['planId'] === null) {
+            $invalidProperties[] = "'planId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -324,6 +334,33 @@ class PlanQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets planId
+     *
+     * @return int
+     */
+    public function getPlanId()
+    {
+        return $this->container['planId'];
+    }
+
+    /**
+     * Sets planId
+     *
+     * @param int $planId planId
+     *
+     * @return self
+     */
+    public function setPlanId($planId)
+    {
+        if (is_null($planId)) {
+            throw new \InvalidArgumentException('non-nullable planId cannot be null');
+        }
+        $this->container['planId'] = $planId;
+
+        return $this;
+    }
 
     /**
      * Gets id

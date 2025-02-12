@@ -81,6 +81,15 @@ class PlanQueryTest extends TestCase
     }
 
     /**
+     * Test attribute "planId"
+     */
+    public function testPropertyPlanId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "id"
      */
     public function testPropertyId()

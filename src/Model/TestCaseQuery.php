@@ -58,6 +58,7 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'testCaseId' => 'int',
         'id' => 'int',
         'position' => 'int',
         'title' => 'string',
@@ -94,6 +95,7 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'testCaseId' => 'int64',
         'id' => 'int64',
         'position' => null,
         'title' => null,
@@ -128,6 +130,7 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'testCaseId' => false,
         'id' => false,
         'position' => false,
         'title' => false,
@@ -242,6 +245,7 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'testCaseId' => 'test_case_id',
         'id' => 'id',
         'position' => 'position',
         'title' => 'title',
@@ -276,6 +280,7 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'testCaseId' => 'setTestCaseId',
         'id' => 'setId',
         'position' => 'setPosition',
         'title' => 'setTitle',
@@ -310,6 +315,7 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'testCaseId' => 'getTestCaseId',
         'id' => 'getId',
         'position' => 'getPosition',
         'title' => 'getTitle',
@@ -395,6 +401,7 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('testCaseId', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('position', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
@@ -450,6 +457,9 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['testCaseId'] === null) {
+            $invalidProperties[] = "'testCaseId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -464,6 +474,33 @@ class TestCaseQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets testCaseId
+     *
+     * @return int
+     */
+    public function getTestCaseId()
+    {
+        return $this->container['testCaseId'];
+    }
+
+    /**
+     * Sets testCaseId
+     *
+     * @param int $testCaseId testCaseId
+     *
+     * @return self
+     */
+    public function setTestCaseId($testCaseId)
+    {
+        if (is_null($testCaseId)) {
+            throw new \InvalidArgumentException('non-nullable testCaseId cannot be null');
+        }
+        $this->container['testCaseId'] = $testCaseId;
+
+        return $this;
+    }
 
     /**
      * Gets id

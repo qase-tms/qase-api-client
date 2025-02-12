@@ -4,6 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**runId** | **int** |  |
+**planId** | **int** |  |
+**resultHash** | **string** |  |
+**requirementId** | **int** |  |
+**testCaseId** | **int** |  |
+**defectId** | **int** |  |
 **id** | **int** |  | [optional]
 **title** | **string** |  | [optional]
 **description** | **string** |  | [optional]
@@ -19,11 +25,9 @@ Name | Type | Description | Notes
 **customFields** | [**\Qase\APIClientV1\Model\CustomFieldValue[]**](CustomFieldValue.md) |  | [optional]
 **tags** | [**\Qase\APIClientV1\Model\TagValue[]**](TagValue.md) |  | [optional]
 **cases** | **int[]** |  | [optional]
-**planId** | **int** |  | [optional]
 **hash** | **string** |  | [optional]
 **comment** | **string** |  | [optional]
 **stacktrace** | **string** |  | [optional]
-**runId** | **int** |  | [optional]
 **caseId** | **int** |  | [optional]
 **steps** | [**\Qase\APIClientV1\Model\TestStep[]**](TestStep.md) |  | [optional]
 **isApiResult** | **bool** |  | [optional]

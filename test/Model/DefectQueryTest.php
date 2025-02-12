@@ -81,6 +81,15 @@ class DefectQueryTest extends TestCase
     }
 
     /**
+     * Test attribute "defectId"
+     */
+    public function testPropertyDefectId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "id"
      */
     public function testPropertyId()

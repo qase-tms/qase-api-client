@@ -1,11 +1,11 @@
-# # Run
+# # RunQuery
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**runId** | **int** |  |
 **id** | **int** |  | [optional]
-**runId** | **int** |  | [optional]
 **title** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **status** | **int** |  | [optional]

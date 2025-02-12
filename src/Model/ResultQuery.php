@@ -1,6 +1,6 @@
 <?php
 /**
- * Result
+ * ResultQuery
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * Result Class Doc Comment
+ * ResultQuery Class Doc Comment
  *
  * @category Class
  * @package  Qase\APIClientV1
@@ -41,7 +41,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Result implements ModelInterface, ArrayAccess, \JsonSerializable
+class ResultQuery implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Result';
+    protected static $openAPIModelName = 'ResultQuery';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'hash' => 'string',
         'resultHash' => 'string',
+        'hash' => 'string',
         'comment' => 'string',
         'stacktrace' => 'string',
         'runId' => 'int',
@@ -80,8 +80,8 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'hash' => null,
         'resultHash' => null,
+        'hash' => null,
         'comment' => null,
         'stacktrace' => null,
         'runId' => 'int64',
@@ -100,8 +100,8 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'hash' => false,
         'resultHash' => false,
+        'hash' => false,
         'comment' => true,
         'stacktrace' => true,
         'runId' => false,
@@ -200,8 +200,8 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'hash' => 'hash',
         'resultHash' => 'result_hash',
+        'hash' => 'hash',
         'comment' => 'comment',
         'stacktrace' => 'stacktrace',
         'runId' => 'run_id',
@@ -220,8 +220,8 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'hash' => 'setHash',
         'resultHash' => 'setResultHash',
+        'hash' => 'setHash',
         'comment' => 'setComment',
         'stacktrace' => 'setStacktrace',
         'runId' => 'setRunId',
@@ -240,8 +240,8 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'hash' => 'getHash',
         'resultHash' => 'getResultHash',
+        'hash' => 'getHash',
         'comment' => 'getComment',
         'stacktrace' => 'getStacktrace',
         'runId' => 'getRunId',
@@ -311,8 +311,8 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('hash', $data ?? [], null);
         $this->setIfExists('resultHash', $data ?? [], null);
+        $this->setIfExists('hash', $data ?? [], null);
         $this->setIfExists('comment', $data ?? [], null);
         $this->setIfExists('stacktrace', $data ?? [], null);
         $this->setIfExists('runId', $data ?? [], null);
@@ -352,6 +352,9 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['resultHash'] === null) {
+            $invalidProperties[] = "'resultHash' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -366,6 +369,33 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets resultHash
+     *
+     * @return string
+     */
+    public function getResultHash()
+    {
+        return $this->container['resultHash'];
+    }
+
+    /**
+     * Sets resultHash
+     *
+     * @param string $resultHash resultHash
+     *
+     * @return self
+     */
+    public function setResultHash($resultHash)
+    {
+        if (is_null($resultHash)) {
+            throw new \InvalidArgumentException('non-nullable resultHash cannot be null');
+        }
+        $this->container['resultHash'] = $resultHash;
+
+        return $this;
+    }
 
     /**
      * Gets hash
@@ -390,33 +420,6 @@ class Result implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable hash cannot be null');
         }
         $this->container['hash'] = $hash;
-
-        return $this;
-    }
-
-    /**
-     * Gets resultHash
-     *
-     * @return string|null
-     */
-    public function getResultHash()
-    {
-        return $this->container['resultHash'];
-    }
-
-    /**
-     * Sets resultHash
-     *
-     * @param string|null $resultHash resultHash
-     *
-     * @return self
-     */
-    public function setResultHash($resultHash)
-    {
-        if (is_null($resultHash)) {
-            throw new \InvalidArgumentException('non-nullable resultHash cannot be null');
-        }
-        $this->container['resultHash'] = $resultHash;
 
         return $this;
     }

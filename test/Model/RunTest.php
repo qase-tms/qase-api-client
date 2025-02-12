@@ -90,6 +90,15 @@ class RunTest extends TestCase
     }
 
     /**
+     * Test attribute "runId"
+     */
+    public function testPropertyRunId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "title"
      */
     public function testPropertyTitle()

@@ -90,6 +90,15 @@ class ResultTest extends TestCase
     }
 
     /**
+     * Test attribute "resultHash"
+     */
+    public function testPropertyResultHash()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "comment"
      */
     public function testPropertyComment()

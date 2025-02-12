@@ -1,6 +1,6 @@
 <?php
 /**
- * QqlDefectTest
+ * ResultQueryTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace Qase\APIClientV1\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * QqlDefectTest Class Doc Comment
+ * ResultQueryTest Class Doc Comment
  *
  * @category    Class
- * @description QqlDefect
+ * @description ResultQuery
  * @package     Qase\APIClientV1
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class QqlDefectTest extends TestCase
+class ResultQueryTest extends TestCase
 {
 
     /**
@@ -72,54 +72,72 @@ class QqlDefectTest extends TestCase
     }
 
     /**
-     * Test "QqlDefect"
+     * Test "ResultQuery"
      */
-    public function testQqlDefect()
+    public function testResultQuery()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "defectId"
+     * Test attribute "resultHash"
      */
-    public function testPropertyDefectId()
+    public function testPropertyResultHash()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "hash"
      */
-    public function testPropertyId()
+    public function testPropertyHash()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "title"
+     * Test attribute "comment"
      */
-    public function testPropertyTitle()
+    public function testPropertyComment()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "actualResult"
+     * Test attribute "stacktrace"
      */
-    public function testPropertyActualResult()
+    public function testPropertyStacktrace()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "severity"
+     * Test attribute "runId"
      */
-    public function testPropertySeverity()
+    public function testPropertyRunId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "caseId"
+     */
+    public function testPropertyCaseId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "steps"
+     */
+    public function testPropertySteps()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -135,18 +153,27 @@ class QqlDefectTest extends TestCase
     }
 
     /**
-     * Test attribute "milestoneId"
+     * Test attribute "isApiResult"
      */
-    public function testPropertyMilestoneId()
+    public function testPropertyIsApiResult()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customFields"
+     * Test attribute "timeSpentMs"
      */
-    public function testPropertyCustomFields()
+    public function testPropertyTimeSpentMs()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "endTime"
+     */
+    public function testPropertyEndTime()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -156,69 +183,6 @@ class QqlDefectTest extends TestCase
      * Test attribute "attachments"
      */
     public function testPropertyAttachments()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "resolved"
-     */
-    public function testPropertyResolved()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "memberId"
-     */
-    public function testPropertyMemberId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "authorId"
-     */
-    public function testPropertyAuthorId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "externalData"
-     */
-    public function testPropertyExternalData()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "tags"
-     */
-    public function testPropertyTags()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updatedAt"
-     */
-    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

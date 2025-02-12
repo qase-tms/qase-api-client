@@ -90,6 +90,15 @@ class RequirementTest extends TestCase
     }
 
     /**
+     * Test attribute "requirementId"
+     */
+    public function testPropertyRequirementId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "parentId"
      */
     public function testPropertyParentId()

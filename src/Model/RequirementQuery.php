@@ -1,6 +1,6 @@
 <?php
 /**
- * QqlPlan
+ * RequirementQuery
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * QqlPlan Class Doc Comment
+ * RequirementQuery Class Doc Comment
  *
  * @category Class
  * @package  Qase\APIClientV1
@@ -41,7 +41,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
+class RequirementQuery implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'qql.Plan';
+    protected static $openAPIModelName = 'RequirementQuery';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,14 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'planId' => 'int',
+        'requirementId' => 'int',
         'id' => 'int',
+        'parentId' => 'int',
+        'memberId' => 'int',
         'title' => 'string',
         'description' => 'string',
-        'casesCount' => 'int',
+        'status' => 'string',
+        'type' => 'string',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime'
     ];
@@ -75,11 +78,14 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'planId' => 'int64',
+        'requirementId' => 'int64',
         'id' => 'int64',
+        'parentId' => 'int64',
+        'memberId' => 'int64',
         'title' => null,
         'description' => null,
-        'casesCount' => null,
+        'status' => null,
+        'type' => null,
         'createdAt' => 'date-time',
         'updatedAt' => 'date-time'
     ];
@@ -90,13 +96,16 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'planId' => false,
+        'requirementId' => false,
         'id' => false,
+        'parentId' => true,
+        'memberId' => false,
         'title' => false,
         'description' => true,
-        'casesCount' => false,
+        'status' => false,
+        'type' => false,
         'createdAt' => false,
-        'updatedAt' => false
+        'updatedAt' => true
     ];
 
     /**
@@ -185,11 +194,14 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'planId' => 'plan_id',
+        'requirementId' => 'requirement_id',
         'id' => 'id',
+        'parentId' => 'parent_id',
+        'memberId' => 'member_id',
         'title' => 'title',
         'description' => 'description',
-        'casesCount' => 'cases_count',
+        'status' => 'status',
+        'type' => 'type',
         'createdAt' => 'created_at',
         'updatedAt' => 'updated_at'
     ];
@@ -200,11 +212,14 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'planId' => 'setPlanId',
+        'requirementId' => 'setRequirementId',
         'id' => 'setId',
+        'parentId' => 'setParentId',
+        'memberId' => 'setMemberId',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'casesCount' => 'setCasesCount',
+        'status' => 'setStatus',
+        'type' => 'setType',
         'createdAt' => 'setCreatedAt',
         'updatedAt' => 'setUpdatedAt'
     ];
@@ -215,11 +230,14 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'planId' => 'getPlanId',
+        'requirementId' => 'getRequirementId',
         'id' => 'getId',
+        'parentId' => 'getParentId',
+        'memberId' => 'getMemberId',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'casesCount' => 'getCasesCount',
+        'status' => 'getStatus',
+        'type' => 'getType',
         'createdAt' => 'getCreatedAt',
         'updatedAt' => 'getUpdatedAt'
     ];
@@ -265,6 +283,50 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const STATUS_VALID = 'valid';
+    public const STATUS_DRAFT = 'draft';
+    public const STATUS_REVIEW = 'review';
+    public const STATUS_REWORK = 'rework';
+    public const STATUS_FINISH = 'finish';
+    public const STATUS_IMPLEMENTED = 'implemented';
+    public const STATUS_NOT_TESTABLE = 'not-testable';
+    public const STATUS_OBSOLETE = 'obsolete';
+    public const TYPE_EPIC = 'epic';
+    public const TYPE_USER_STORY = 'user-story';
+    public const TYPE_FEATURE = 'feature';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_VALID,
+            self::STATUS_DRAFT,
+            self::STATUS_REVIEW,
+            self::STATUS_REWORK,
+            self::STATUS_FINISH,
+            self::STATUS_IMPLEMENTED,
+            self::STATUS_NOT_TESTABLE,
+            self::STATUS_OBSOLETE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_EPIC,
+            self::TYPE_USER_STORY,
+            self::TYPE_FEATURE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -281,11 +343,14 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('planId', $data ?? [], null);
+        $this->setIfExists('requirementId', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('parentId', $data ?? [], null);
+        $this->setIfExists('memberId', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('casesCount', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
         $this->setIfExists('updatedAt', $data ?? [], null);
     }
@@ -317,9 +382,27 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['planId'] === null) {
-            $invalidProperties[] = "'planId' can't be null";
+        if ($this->container['requirementId'] === null) {
+            $invalidProperties[] = "'requirementId' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -336,28 +419,28 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets planId
+     * Gets requirementId
      *
      * @return int
      */
-    public function getPlanId()
+    public function getRequirementId()
     {
-        return $this->container['planId'];
+        return $this->container['requirementId'];
     }
 
     /**
-     * Sets planId
+     * Sets requirementId
      *
-     * @param int $planId planId
+     * @param int $requirementId requirementId
      *
      * @return self
      */
-    public function setPlanId($planId)
+    public function setRequirementId($requirementId)
     {
-        if (is_null($planId)) {
-            throw new \InvalidArgumentException('non-nullable planId cannot be null');
+        if (is_null($requirementId)) {
+            throw new \InvalidArgumentException('non-nullable requirementId cannot be null');
         }
-        $this->container['planId'] = $planId;
+        $this->container['requirementId'] = $requirementId;
 
         return $this;
     }
@@ -385,6 +468,67 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets parentId
+     *
+     * @return int|null
+     */
+    public function getParentId()
+    {
+        return $this->container['parentId'];
+    }
+
+    /**
+     * Sets parentId
+     *
+     * @param int|null $parentId parentId
+     *
+     * @return self
+     */
+    public function setParentId($parentId)
+    {
+        if (is_null($parentId)) {
+            array_push($this->openAPINullablesSetToNull, 'parentId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parentId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['parentId'] = $parentId;
+
+        return $this;
+    }
+
+    /**
+     * Gets memberId
+     *
+     * @return int|null
+     */
+    public function getMemberId()
+    {
+        return $this->container['memberId'];
+    }
+
+    /**
+     * Sets memberId
+     *
+     * @param int|null $memberId memberId
+     *
+     * @return self
+     */
+    public function setMemberId($memberId)
+    {
+        if (is_null($memberId)) {
+            throw new \InvalidArgumentException('non-nullable memberId cannot be null');
+        }
+        $this->container['memberId'] = $memberId;
 
         return $this;
     }
@@ -451,28 +595,75 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets casesCount
+     * Gets status
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getCasesCount()
+    public function getStatus()
     {
-        return $this->container['casesCount'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets casesCount
+     * Sets status
      *
-     * @param int|null $casesCount casesCount
+     * @param string|null $status status
      *
      * @return self
      */
-    public function setCasesCount($casesCount)
+    public function setStatus($status)
     {
-        if (is_null($casesCount)) {
-            throw new \InvalidArgumentException('non-nullable casesCount cannot be null');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['casesCount'] = $casesCount;
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -524,7 +715,14 @@ class QqlPlan implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUpdatedAt($updatedAt)
     {
         if (is_null($updatedAt)) {
-            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updatedAt');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updatedAt', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updatedAt'] = $updatedAt;
 
