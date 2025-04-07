@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **public** | **bool** |  | [optional]
 **stats** | [**\Qase\APIClientV1\Model\RunStats**](RunStats.md) |  | [optional]
 **timeSpent** | **int** | Time in ms. | [optional]
+**elapsedTime** | **int** | Time in ms. | [optional]
 **environment** | [**\Qase\APIClientV1\Model\RunEnvironment**](RunEnvironment.md) |  | [optional]
 **milestone** | [**\Qase\APIClientV1\Model\RunMilestone**](RunMilestone.md) |  | [optional]
 **customFields** | [**\Qase\APIClientV1\Model\CustomFieldValue[]**](CustomFieldValue.md) |  | [optional]

@@ -333,7 +333,7 @@ try {
 ## `getCase()`
 
 ```php
-getCase($code, $id): \Qase\APIClientV1\Model\TestCaseResponse
+getCase($code, $id, $include): \Qase\APIClientV1\Model\TestCaseResponse
 ```
 
 Get a specific test case
@@ -361,9 +361,10 @@ $apiInstance = new Qase\APIClientV1\Api\CasesApi(
 );
 $code = 'code_example'; // string | Code of project, where to search entities.
 $id = 56; // int | Identifier.
+$include = 'include_example'; // string | A list of entities to include in response separated by comma. Possible values: external_issues.
 
 try {
-    $result = $apiInstance->getCase($code, $id);
+    $result = $apiInstance->getCase($code, $id, $include);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CasesApi->getCase: ', $e->getMessage(), PHP_EOL;
@@ -376,6 +377,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| Code of project, where to search entities. | |
 | **id** | **int**| Identifier. | |
+| **include** | **string**| A list of entities to include in response separated by comma. Possible values: external_issues. | [optional] |
 
 ### Return type
 

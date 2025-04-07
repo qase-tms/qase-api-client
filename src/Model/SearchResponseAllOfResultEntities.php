@@ -74,6 +74,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'public' => 'bool',
         'stats' => '\Qase\APIClientV1\Model\RunStats',
         'timeSpent' => 'int',
+        'elapsedTime' => 'int',
         'environment' => '\Qase\APIClientV1\Model\RunEnvironment',
         'milestone' => '\Qase\APIClientV1\Model\RunMilestone',
         'customFields' => '\Qase\APIClientV1\Model\CustomFieldValue[]',
@@ -106,6 +107,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'stepsType' => 'string',
         'params' => '\Qase\APIClientV1\Model\TestCaseParams',
         'authorId' => 'int',
+        'updatedBy' => 'int',
         'actualResult' => 'string',
         'resolved' => '\DateTime',
         'externalData' => 'string',
@@ -136,6 +138,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'public' => null,
         'stats' => null,
         'timeSpent' => 'int64',
+        'elapsedTime' => 'int64',
         'environment' => null,
         'milestone' => null,
         'customFields' => null,
@@ -168,6 +171,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'stepsType' => null,
         'params' => null,
         'authorId' => 'int64',
+        'updatedBy' => 'int64',
         'actualResult' => null,
         'resolved' => 'date-time',
         'externalData' => null,
@@ -196,6 +200,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'public' => false,
         'stats' => false,
         'timeSpent' => false,
+        'elapsedTime' => false,
         'environment' => true,
         'milestone' => true,
         'customFields' => false,
@@ -228,6 +233,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'stepsType' => true,
         'params' => false,
         'authorId' => false,
+        'updatedBy' => false,
         'actualResult' => false,
         'resolved' => true,
         'externalData' => false,
@@ -336,6 +342,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'public' => 'public',
         'stats' => 'stats',
         'timeSpent' => 'time_spent',
+        'elapsedTime' => 'elapsed_time',
         'environment' => 'environment',
         'milestone' => 'milestone',
         'customFields' => 'custom_fields',
@@ -368,6 +375,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'stepsType' => 'steps_type',
         'params' => 'params',
         'authorId' => 'author_id',
+        'updatedBy' => 'updated_by',
         'actualResult' => 'actual_result',
         'resolved' => 'resolved',
         'externalData' => 'external_data',
@@ -396,6 +404,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'public' => 'setPublic',
         'stats' => 'setStats',
         'timeSpent' => 'setTimeSpent',
+        'elapsedTime' => 'setElapsedTime',
         'environment' => 'setEnvironment',
         'milestone' => 'setMilestone',
         'customFields' => 'setCustomFields',
@@ -428,6 +437,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'stepsType' => 'setStepsType',
         'params' => 'setParams',
         'authorId' => 'setAuthorId',
+        'updatedBy' => 'setUpdatedBy',
         'actualResult' => 'setActualResult',
         'resolved' => 'setResolved',
         'externalData' => 'setExternalData',
@@ -456,6 +466,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'public' => 'getPublic',
         'stats' => 'getStats',
         'timeSpent' => 'getTimeSpent',
+        'elapsedTime' => 'getElapsedTime',
         'environment' => 'getEnvironment',
         'milestone' => 'getMilestone',
         'customFields' => 'getCustomFields',
@@ -488,6 +499,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'stepsType' => 'getStepsType',
         'params' => 'getParams',
         'authorId' => 'getAuthorId',
+        'updatedBy' => 'getUpdatedBy',
         'actualResult' => 'getActualResult',
         'resolved' => 'getResolved',
         'externalData' => 'getExternalData',
@@ -567,6 +579,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         $this->setIfExists('public', $data ?? [], null);
         $this->setIfExists('stats', $data ?? [], null);
         $this->setIfExists('timeSpent', $data ?? [], null);
+        $this->setIfExists('elapsedTime', $data ?? [], null);
         $this->setIfExists('environment', $data ?? [], null);
         $this->setIfExists('milestone', $data ?? [], null);
         $this->setIfExists('customFields', $data ?? [], null);
@@ -599,6 +612,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         $this->setIfExists('stepsType', $data ?? [], null);
         $this->setIfExists('params', $data ?? [], null);
         $this->setIfExists('authorId', $data ?? [], null);
+        $this->setIfExists('updatedBy', $data ?? [], null);
         $this->setIfExists('actualResult', $data ?? [], null);
         $this->setIfExists('resolved', $data ?? [], null);
         $this->setIfExists('externalData', $data ?? [], null);
@@ -1114,6 +1128,33 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable timeSpent cannot be null');
         }
         $this->container['timeSpent'] = $timeSpent;
+
+        return $this;
+    }
+
+    /**
+     * Gets elapsedTime
+     *
+     * @return int|null
+     */
+    public function getElapsedTime()
+    {
+        return $this->container['elapsedTime'];
+    }
+
+    /**
+     * Sets elapsedTime
+     *
+     * @param int|null $elapsedTime Time in ms.
+     *
+     * @return self
+     */
+    public function setElapsedTime($elapsedTime)
+    {
+        if (is_null($elapsedTime)) {
+            throw new \InvalidArgumentException('non-nullable elapsedTime cannot be null');
+        }
+        $this->container['elapsedTime'] = $elapsedTime;
 
         return $this;
     }
@@ -2050,6 +2091,33 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable authorId cannot be null');
         }
         $this->container['authorId'] = $authorId;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedBy
+     *
+     * @return int|null
+     */
+    public function getUpdatedBy()
+    {
+        return $this->container['updatedBy'];
+    }
+
+    /**
+     * Sets updatedBy
+     *
+     * @param int|null $updatedBy Author ID of the last update.
+     *
+     * @return self
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        if (is_null($updatedBy)) {
+            throw new \InvalidArgumentException('non-nullable updatedBy cannot be null');
+        }
+        $this->container['updatedBy'] = $updatedBy;
 
         return $this;
     }
