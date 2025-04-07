@@ -1837,15 +1837,16 @@ class CasesApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
+     * @param  string $include A list of entities to include in response separated by comma. Possible values: external_issues. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCase'] to see the possible values for this operation
      *
      * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Qase\APIClientV1\Model\TestCaseResponse
      */
-    public function getCase($code, $id, string $contentType = self::contentTypes['getCase'][0])
+    public function getCase($code, $id, $include = null, string $contentType = self::contentTypes['getCase'][0])
     {
-        list($response) = $this->getCaseWithHttpInfo($code, $id, $contentType);
+        list($response) = $this->getCaseWithHttpInfo($code, $id, $include, $contentType);
         return $response;
     }
 
@@ -1856,15 +1857,16 @@ class CasesApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
+     * @param  string $include A list of entities to include in response separated by comma. Possible values: external_issues. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCase'] to see the possible values for this operation
      *
      * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Qase\APIClientV1\Model\TestCaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCaseWithHttpInfo($code, $id, string $contentType = self::contentTypes['getCase'][0])
+    public function getCaseWithHttpInfo($code, $id, $include = null, string $contentType = self::contentTypes['getCase'][0])
     {
-        $request = $this->getCaseRequest($code, $id, $contentType);
+        $request = $this->getCaseRequest($code, $id, $include, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1981,14 +1983,15 @@ class CasesApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
+     * @param  string $include A list of entities to include in response separated by comma. Possible values: external_issues. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCaseAsync($code, $id, string $contentType = self::contentTypes['getCase'][0])
+    public function getCaseAsync($code, $id, $include = null, string $contentType = self::contentTypes['getCase'][0])
     {
-        return $this->getCaseAsyncWithHttpInfo($code, $id, $contentType)
+        return $this->getCaseAsyncWithHttpInfo($code, $id, $include, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2003,15 +2006,16 @@ class CasesApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
+     * @param  string $include A list of entities to include in response separated by comma. Possible values: external_issues. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCaseAsyncWithHttpInfo($code, $id, string $contentType = self::contentTypes['getCase'][0])
+    public function getCaseAsyncWithHttpInfo($code, $id, $include = null, string $contentType = self::contentTypes['getCase'][0])
     {
         $returnType = '\Qase\APIClientV1\Model\TestCaseResponse';
-        $request = $this->getCaseRequest($code, $id, $contentType);
+        $request = $this->getCaseRequest($code, $id, $include, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2054,12 +2058,13 @@ class CasesApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
+     * @param  string $include A list of entities to include in response separated by comma. Possible values: external_issues. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCaseRequest($code, $id, string $contentType = self::contentTypes['getCase'][0])
+    public function getCaseRequest($code, $id, $include = null, string $contentType = self::contentTypes['getCase'][0])
     {
 
         // verify the required parameter 'code' is set
@@ -2083,6 +2088,7 @@ class CasesApi
         }
 
 
+
         $resourcePath = '/case/{code}/{id}';
         $formParams = [];
         $queryParams = [];
@@ -2090,6 +2096,15 @@ class CasesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include,
+            'include', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

@@ -84,7 +84,8 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'memberId' => 'int',
         'authorId' => 'int',
         'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime'
+        'updatedAt' => '\DateTime',
+        'updatedBy' => 'int'
     ];
 
     /**
@@ -121,7 +122,8 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'memberId' => 'int64',
         'authorId' => 'int64',
         'createdAt' => 'date-time',
-        'updatedAt' => 'date-time'
+        'updatedAt' => 'date-time',
+        'updatedBy' => 'int64'
     ];
 
     /**
@@ -156,7 +158,8 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'memberId' => false,
         'authorId' => false,
         'createdAt' => false,
-        'updatedAt' => false
+        'updatedAt' => false,
+        'updatedBy' => false
     ];
 
     /**
@@ -271,7 +274,8 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'memberId' => 'member_id',
         'authorId' => 'author_id',
         'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at'
+        'updatedAt' => 'updated_at',
+        'updatedBy' => 'updated_by'
     ];
 
     /**
@@ -306,7 +310,8 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'memberId' => 'setMemberId',
         'authorId' => 'setAuthorId',
         'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt'
+        'updatedAt' => 'setUpdatedAt',
+        'updatedBy' => 'setUpdatedBy'
     ];
 
     /**
@@ -341,7 +346,8 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'memberId' => 'getMemberId',
         'authorId' => 'getAuthorId',
         'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt'
+        'updatedAt' => 'getUpdatedAt',
+        'updatedBy' => 'getUpdatedBy'
     ];
 
     /**
@@ -428,6 +434,7 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('authorId', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
         $this->setIfExists('updatedAt', $data ?? [], null);
+        $this->setIfExists('updatedBy', $data ?? [], null);
     }
 
     /**
@@ -1244,6 +1251,33 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
         }
         $this->container['updatedAt'] = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedBy
+     *
+     * @return int|null
+     */
+    public function getUpdatedBy()
+    {
+        return $this->container['updatedBy'];
+    }
+
+    /**
+     * Sets updatedBy
+     *
+     * @param int|null $updatedBy Author ID of the last update.
+     *
+     * @return self
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        if (is_null($updatedBy)) {
+            throw new \InvalidArgumentException('non-nullable updatedBy cannot be null');
+        }
+        $this->container['updatedBy'] = $updatedBy;
 
         return $this;
     }

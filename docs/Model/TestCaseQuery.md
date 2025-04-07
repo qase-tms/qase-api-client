@@ -31,5 +31,6 @@ Name | Type | Description | Notes
 **authorId** | **int** |  | [optional]
 **createdAt** | **\DateTime** |  | [optional]
 **updatedAt** | **\DateTime** |  | [optional]
+**updatedBy** | **int** | Author ID of the last update. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

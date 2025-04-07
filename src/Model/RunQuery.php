@@ -69,6 +69,7 @@ class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'public' => 'bool',
         'stats' => '\Qase\APIClientV1\Model\RunStats',
         'timeSpent' => 'int',
+        'elapsedTime' => 'int',
         'environment' => '\Qase\APIClientV1\Model\RunEnvironment',
         'milestone' => '\Qase\APIClientV1\Model\RunMilestone',
         'customFields' => '\Qase\APIClientV1\Model\CustomFieldValue[]',
@@ -96,6 +97,7 @@ class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'public' => null,
         'stats' => null,
         'timeSpent' => 'int64',
+        'elapsedTime' => 'int64',
         'environment' => null,
         'milestone' => null,
         'customFields' => null,
@@ -121,6 +123,7 @@ class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'public' => false,
         'stats' => false,
         'timeSpent' => false,
+        'elapsedTime' => false,
         'environment' => true,
         'milestone' => true,
         'customFields' => false,
@@ -226,6 +229,7 @@ class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'public' => 'public',
         'stats' => 'stats',
         'timeSpent' => 'time_spent',
+        'elapsedTime' => 'elapsed_time',
         'environment' => 'environment',
         'milestone' => 'milestone',
         'customFields' => 'custom_fields',
@@ -251,6 +255,7 @@ class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'public' => 'setPublic',
         'stats' => 'setStats',
         'timeSpent' => 'setTimeSpent',
+        'elapsedTime' => 'setElapsedTime',
         'environment' => 'setEnvironment',
         'milestone' => 'setMilestone',
         'customFields' => 'setCustomFields',
@@ -276,6 +281,7 @@ class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'public' => 'getPublic',
         'stats' => 'getStats',
         'timeSpent' => 'getTimeSpent',
+        'elapsedTime' => 'getElapsedTime',
         'environment' => 'getEnvironment',
         'milestone' => 'getMilestone',
         'customFields' => 'getCustomFields',
@@ -352,6 +358,7 @@ class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('public', $data ?? [], null);
         $this->setIfExists('stats', $data ?? [], null);
         $this->setIfExists('timeSpent', $data ?? [], null);
+        $this->setIfExists('elapsedTime', $data ?? [], null);
         $this->setIfExists('environment', $data ?? [], null);
         $this->setIfExists('milestone', $data ?? [], null);
         $this->setIfExists('customFields', $data ?? [], null);
@@ -719,6 +726,33 @@ class RunQuery implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable timeSpent cannot be null');
         }
         $this->container['timeSpent'] = $timeSpent;
+
+        return $this;
+    }
+
+    /**
+     * Gets elapsedTime
+     *
+     * @return int|null
+     */
+    public function getElapsedTime()
+    {
+        return $this->container['elapsedTime'];
+    }
+
+    /**
+     * Sets elapsedTime
+     *
+     * @param int|null $elapsedTime Time in ms.
+     *
+     * @return self
+     */
+    public function setElapsedTime($elapsedTime)
+    {
+        if (is_null($elapsedTime)) {
+            throw new \InvalidArgumentException('non-nullable elapsedTime cannot be null');
+        }
+        $this->container['elapsedTime'] = $elapsedTime;
 
         return $this;
     }
