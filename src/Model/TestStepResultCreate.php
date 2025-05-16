@@ -274,6 +274,7 @@ class TestStepResultCreate implements ModelInterface, ArrayAccess, \JsonSerializ
     public const STATUS_PASSED = 'passed';
     public const STATUS_FAILED = 'failed';
     public const STATUS_BLOCKED = 'blocked';
+    public const STATUS_IN_PROGRESS = 'in_progress';
 
     /**
      * Gets allowable values of the enum
@@ -286,6 +287,7 @@ class TestStepResultCreate implements ModelInterface, ArrayAccess, \JsonSerializ
             self::STATUS_PASSED,
             self::STATUS_FAILED,
             self::STATUS_BLOCKED,
+            self::STATUS_IN_PROGRESS,
         ];
     }
 
