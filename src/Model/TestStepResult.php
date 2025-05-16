@@ -324,7 +324,7 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param int|null $status status
+     * @param int|null $status 1 - passed, 2 - failed, 3 - blocked, 5 - skipped, 7 - in_progress
      *
      * @return self
      */
