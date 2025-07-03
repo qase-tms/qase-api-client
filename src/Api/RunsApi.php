@@ -87,6 +87,12 @@ class RunsApi
         'getRuns' => [
             'application/json',
         ],
+        'runUpdateExternalIssue' => [
+            'application/json',
+        ],
+        'updateRun' => [
+            'application/json',
+        ],
         'updateRunPublicity' => [
             'application/json',
         ],
@@ -1158,7 +1164,7 @@ class RunsApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRun'] to see the possible values for this operation
      *
      * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1178,7 +1184,7 @@ class RunsApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRun'] to see the possible values for this operation
      *
      * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1304,7 +1310,7 @@ class RunsApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRun'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1327,7 +1333,7 @@ class RunsApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRun'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1379,7 +1385,7 @@ class RunsApi
      *
      * @param  string $code Code of project, where to search entities. (required)
      * @param  int $id Identifier. (required)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRun'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1518,7 +1524,7 @@ class RunsApi
      * @param  int $toStartTime toStartTime (optional)
      * @param  int $limit A number of entities in result set. (optional, default to 10)
      * @param  int $offset How many entities should be skipped. (optional, default to 0)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1545,7 +1551,7 @@ class RunsApi
      * @param  int $toStartTime (optional)
      * @param  int $limit A number of entities in result set. (optional, default to 10)
      * @param  int $offset How many entities should be skipped. (optional, default to 0)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1678,7 +1684,7 @@ class RunsApi
      * @param  int $toStartTime (optional)
      * @param  int $limit A number of entities in result set. (optional, default to 10)
      * @param  int $offset How many entities should be skipped. (optional, default to 0)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1708,7 +1714,7 @@ class RunsApi
      * @param  int $toStartTime (optional)
      * @param  int $limit A number of entities in result set. (optional, default to 10)
      * @param  int $offset How many entities should be skipped. (optional, default to 0)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1767,7 +1773,7 @@ class RunsApi
      * @param  int $toStartTime (optional)
      * @param  int $limit A number of entities in result set. (optional, default to 10)
      * @param  int $offset How many entities should be skipped. (optional, default to 0)
-     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects (optional)
+     * @param  string $include Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects, external_issue (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1963,6 +1969,622 @@ class RunsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation runUpdateExternalIssue
+     *
+     * Update external issues for runs
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  \Qase\APIClientV1\Model\RunexternalIssues $runexternalIssues runexternalIssues (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['runUpdateExternalIssue'] to see the possible values for this operation
+     *
+     * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function runUpdateExternalIssue($code, $runexternalIssues, string $contentType = self::contentTypes['runUpdateExternalIssue'][0])
+    {
+        $this->runUpdateExternalIssueWithHttpInfo($code, $runexternalIssues, $contentType);
+    }
+
+    /**
+     * Operation runUpdateExternalIssueWithHttpInfo
+     *
+     * Update external issues for runs
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  \Qase\APIClientV1\Model\RunexternalIssues $runexternalIssues (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['runUpdateExternalIssue'] to see the possible values for this operation
+     *
+     * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function runUpdateExternalIssueWithHttpInfo($code, $runexternalIssues, string $contentType = self::contentTypes['runUpdateExternalIssue'][0])
+    {
+        $request = $this->runUpdateExternalIssueRequest($code, $runexternalIssues, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation runUpdateExternalIssueAsync
+     *
+     * Update external issues for runs
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  \Qase\APIClientV1\Model\RunexternalIssues $runexternalIssues (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['runUpdateExternalIssue'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function runUpdateExternalIssueAsync($code, $runexternalIssues, string $contentType = self::contentTypes['runUpdateExternalIssue'][0])
+    {
+        return $this->runUpdateExternalIssueAsyncWithHttpInfo($code, $runexternalIssues, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation runUpdateExternalIssueAsyncWithHttpInfo
+     *
+     * Update external issues for runs
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  \Qase\APIClientV1\Model\RunexternalIssues $runexternalIssues (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['runUpdateExternalIssue'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function runUpdateExternalIssueAsyncWithHttpInfo($code, $runexternalIssues, string $contentType = self::contentTypes['runUpdateExternalIssue'][0])
+    {
+        $returnType = '';
+        $request = $this->runUpdateExternalIssueRequest($code, $runexternalIssues, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'runUpdateExternalIssue'
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  \Qase\APIClientV1\Model\RunexternalIssues $runexternalIssues (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['runUpdateExternalIssue'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function runUpdateExternalIssueRequest($code, $runexternalIssues, string $contentType = self::contentTypes['runUpdateExternalIssue'][0])
+    {
+
+        // verify the required parameter 'code' is set
+        if ($code === null || (is_array($code) && count($code) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $code when calling runUpdateExternalIssue'
+            );
+        }
+        if (strlen($code) > 10) {
+            throw new \InvalidArgumentException('invalid length for "$code" when calling RunsApi.runUpdateExternalIssue, must be smaller than or equal to 10.');
+        }
+        if (strlen($code) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$code" when calling RunsApi.runUpdateExternalIssue, must be bigger than or equal to 2.');
+        }
+        
+        // verify the required parameter 'runexternalIssues' is set
+        if ($runexternalIssues === null || (is_array($runexternalIssues) && count($runexternalIssues) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $runexternalIssues when calling runUpdateExternalIssue'
+            );
+        }
+
+
+        $resourcePath = '/run/{code}/external-issue';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($code !== null) {
+            $resourcePath = str_replace(
+                '{' . 'code' . '}',
+                ObjectSerializer::toPathValue($code),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($runexternalIssues)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($runexternalIssues));
+            } else {
+                $httpBody = $runexternalIssues;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Token');
+        if ($apiKey !== null) {
+            $headers['Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateRun
+     *
+     * Update a specific run
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  int $id Identifier. (required)
+     * @param  \Qase\APIClientV1\Model\Runupdate $runupdate runupdate (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRun'] to see the possible values for this operation
+     *
+     * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Qase\APIClientV1\Model\BaseResponse
+     */
+    public function updateRun($code, $id, $runupdate, string $contentType = self::contentTypes['updateRun'][0])
+    {
+        list($response) = $this->updateRunWithHttpInfo($code, $id, $runupdate, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateRunWithHttpInfo
+     *
+     * Update a specific run
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  int $id Identifier. (required)
+     * @param  \Qase\APIClientV1\Model\Runupdate $runupdate (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRun'] to see the possible values for this operation
+     *
+     * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Qase\APIClientV1\Model\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateRunWithHttpInfo($code, $id, $runupdate, string $contentType = self::contentTypes['updateRun'][0])
+    {
+        $request = $this->updateRunRequest($code, $id, $runupdate, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Qase\APIClientV1\Model\BaseResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Qase\APIClientV1\Model\BaseResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Qase\APIClientV1\Model\BaseResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Qase\APIClientV1\Model\BaseResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Qase\APIClientV1\Model\BaseResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateRunAsync
+     *
+     * Update a specific run
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  int $id Identifier. (required)
+     * @param  \Qase\APIClientV1\Model\Runupdate $runupdate (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRun'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateRunAsync($code, $id, $runupdate, string $contentType = self::contentTypes['updateRun'][0])
+    {
+        return $this->updateRunAsyncWithHttpInfo($code, $id, $runupdate, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateRunAsyncWithHttpInfo
+     *
+     * Update a specific run
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  int $id Identifier. (required)
+     * @param  \Qase\APIClientV1\Model\Runupdate $runupdate (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRun'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateRunAsyncWithHttpInfo($code, $id, $runupdate, string $contentType = self::contentTypes['updateRun'][0])
+    {
+        $returnType = '\Qase\APIClientV1\Model\BaseResponse';
+        $request = $this->updateRunRequest($code, $id, $runupdate, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateRun'
+     *
+     * @param  string $code Code of project, where to search entities. (required)
+     * @param  int $id Identifier. (required)
+     * @param  \Qase\APIClientV1\Model\Runupdate $runupdate (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRun'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateRunRequest($code, $id, $runupdate, string $contentType = self::contentTypes['updateRun'][0])
+    {
+
+        // verify the required parameter 'code' is set
+        if ($code === null || (is_array($code) && count($code) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $code when calling updateRun'
+            );
+        }
+        if (strlen($code) > 10) {
+            throw new \InvalidArgumentException('invalid length for "$code" when calling RunsApi.updateRun, must be smaller than or equal to 10.');
+        }
+        if (strlen($code) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$code" when calling RunsApi.updateRun, must be bigger than or equal to 2.');
+        }
+        
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateRun'
+            );
+        }
+
+        // verify the required parameter 'runupdate' is set
+        if ($runupdate === null || (is_array($runupdate) && count($runupdate) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $runupdate when calling updateRun'
+            );
+        }
+
+
+        $resourcePath = '/run/{code}/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($code !== null) {
+            $resourcePath = str_replace(
+                '{' . 'code' . '}',
+                ObjectSerializer::toPathValue($code),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($runupdate)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($runupdate));
+            } else {
+                $httpBody = $runupdate;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Token');
+        if ($apiKey !== null) {
+            $headers['Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
