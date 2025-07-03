@@ -75,7 +75,9 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'customFields' => '\Qase\APIClientV1\Model\CustomFieldValue[]',
         'tags' => '\Qase\APIClientV1\Model\TagValue[]',
         'cases' => 'int[]',
-        'planId' => 'int'
+        'planId' => 'int',
+        'configurations' => 'int[]',
+        'externalIssue' => '\Qase\APIClientV1\Model\RunExternalIssue'
     ];
 
     /**
@@ -103,7 +105,9 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'customFields' => null,
         'tags' => null,
         'cases' => 'int64',
-        'planId' => 'int64'
+        'planId' => 'int64',
+        'configurations' => 'int64',
+        'externalIssue' => null
     ];
 
     /**
@@ -129,7 +133,9 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'customFields' => false,
         'tags' => false,
         'cases' => false,
-        'planId' => true
+        'planId' => true,
+        'configurations' => false,
+        'externalIssue' => true
     ];
 
     /**
@@ -235,7 +241,9 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'customFields' => 'custom_fields',
         'tags' => 'tags',
         'cases' => 'cases',
-        'planId' => 'plan_id'
+        'planId' => 'plan_id',
+        'configurations' => 'configurations',
+        'externalIssue' => 'external_issue'
     ];
 
     /**
@@ -261,7 +269,9 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'customFields' => 'setCustomFields',
         'tags' => 'setTags',
         'cases' => 'setCases',
-        'planId' => 'setPlanId'
+        'planId' => 'setPlanId',
+        'configurations' => 'setConfigurations',
+        'externalIssue' => 'setExternalIssue'
     ];
 
     /**
@@ -287,7 +297,9 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'customFields' => 'getCustomFields',
         'tags' => 'getTags',
         'cases' => 'getCases',
-        'planId' => 'getPlanId'
+        'planId' => 'getPlanId',
+        'configurations' => 'getConfigurations',
+        'externalIssue' => 'getExternalIssue'
     ];
 
     /**
@@ -365,6 +377,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('cases', $data ?? [], null);
         $this->setIfExists('planId', $data ?? [], null);
+        $this->setIfExists('configurations', $data ?? [], null);
+        $this->setIfExists('externalIssue', $data ?? [], null);
     }
 
     /**
@@ -933,6 +947,67 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['planId'] = $planId;
+
+        return $this;
+    }
+
+    /**
+     * Gets configurations
+     *
+     * @return int[]|null
+     */
+    public function getConfigurations()
+    {
+        return $this->container['configurations'];
+    }
+
+    /**
+     * Sets configurations
+     *
+     * @param int[]|null $configurations configurations
+     *
+     * @return self
+     */
+    public function setConfigurations($configurations)
+    {
+        if (is_null($configurations)) {
+            throw new \InvalidArgumentException('non-nullable configurations cannot be null');
+        }
+        $this->container['configurations'] = $configurations;
+
+        return $this;
+    }
+
+    /**
+     * Gets externalIssue
+     *
+     * @return \Qase\APIClientV1\Model\RunExternalIssue|null
+     */
+    public function getExternalIssue()
+    {
+        return $this->container['externalIssue'];
+    }
+
+    /**
+     * Sets externalIssue
+     *
+     * @param \Qase\APIClientV1\Model\RunExternalIssue|null $externalIssue externalIssue
+     *
+     * @return self
+     */
+    public function setExternalIssue($externalIssue)
+    {
+        if (is_null($externalIssue)) {
+            array_push($this->openAPINullablesSetToNull, 'externalIssue');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('externalIssue', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['externalIssue'] = $externalIssue;
 
         return $this;
     }

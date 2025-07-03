@@ -22,5 +22,7 @@ Name | Type | Description | Notes
 **tags** | [**\Qase\APIClientV1\Model\TagValue[]**](TagValue.md) |  | [optional]
 **cases** | **int[]** |  | [optional]
 **planId** | **int** |  | [optional]
+**configurations** | **int[]** |  | [optional]
+**externalIssue** | [**\Qase\APIClientV1\Model\RunExternalIssue**](RunExternalIssue.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

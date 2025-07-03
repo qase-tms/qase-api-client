@@ -68,7 +68,6 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'int',
         'layer' => 'int',
         'isFlaky' => 'int',
-        'authorId' => 'int',
         'suiteId' => 'int',
         'milestoneId' => 'int',
         'automation' => 'int',
@@ -100,7 +99,6 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => null,
         'layer' => null,
         'isFlaky' => null,
-        'authorId' => null,
         'suiteId' => 'int64',
         'milestoneId' => 'int64',
         'automation' => null,
@@ -130,7 +128,6 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => false,
         'layer' => false,
         'isFlaky' => false,
-        'authorId' => false,
         'suiteId' => false,
         'milestoneId' => false,
         'automation' => false,
@@ -240,7 +237,6 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'type',
         'layer' => 'layer',
         'isFlaky' => 'is_flaky',
-        'authorId' => 'author_id',
         'suiteId' => 'suite_id',
         'milestoneId' => 'milestone_id',
         'automation' => 'automation',
@@ -270,7 +266,6 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'setType',
         'layer' => 'setLayer',
         'isFlaky' => 'setIsFlaky',
-        'authorId' => 'setAuthorId',
         'suiteId' => 'setSuiteId',
         'milestoneId' => 'setMilestoneId',
         'automation' => 'setAutomation',
@@ -300,7 +295,6 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'getType',
         'layer' => 'getLayer',
         'isFlaky' => 'getIsFlaky',
-        'authorId' => 'getAuthorId',
         'suiteId' => 'getSuiteId',
         'milestoneId' => 'getMilestoneId',
         'automation' => 'getAutomation',
@@ -381,7 +375,6 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('layer', $data ?? [], null);
         $this->setIfExists('isFlaky', $data ?? [], null);
-        $this->setIfExists('authorId', $data ?? [], null);
         $this->setIfExists('suiteId', $data ?? [], null);
         $this->setIfExists('milestoneId', $data ?? [], null);
         $this->setIfExists('automation', $data ?? [], null);
@@ -714,33 +707,6 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable isFlaky cannot be null');
         }
         $this->container['isFlaky'] = $isFlaky;
-
-        return $this;
-    }
-
-    /**
-     * Gets authorId
-     *
-     * @return int|null
-     */
-    public function getAuthorId()
-    {
-        return $this->container['authorId'];
-    }
-
-    /**
-     * Sets authorId
-     *
-     * @param int|null $authorId authorId
-     *
-     * @return self
-     */
-    public function setAuthorId($authorId)
-    {
-        if (is_null($authorId)) {
-            throw new \InvalidArgumentException('non-nullable authorId cannot be null');
-        }
-        $this->container['authorId'] = $authorId;
 
         return $this;
     }
