@@ -19,5 +19,7 @@ Name | Type | Description | Notes
 **customField** | **array<string,string>** | A map of custom fields values (id &#x3D;&gt; value) | [optional]
 **startTime** | **string** |  | [optional]
 **endTime** | **string** |  | [optional]
+**isCloud** | **bool** | Indicates if the run is created for the Test Cases produced by AIDEN | [optional]
+**cloudRunConfig** | [**\Qase\APIClientV1\Model\RunCreateCloudRunConfig**](RunCreateCloudRunConfig.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

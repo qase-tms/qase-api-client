@@ -72,7 +72,9 @@ class RunCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'configurations' => 'int[]',
         'customField' => 'array<string,string>',
         'startTime' => 'string',
-        'endTime' => 'string'
+        'endTime' => 'string',
+        'isCloud' => 'bool',
+        'cloudRunConfig' => '\Qase\APIClientV1\Model\RunCreateCloudRunConfig'
     ];
 
     /**
@@ -97,7 +99,9 @@ class RunCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'configurations' => 'int64',
         'customField' => null,
         'startTime' => null,
-        'endTime' => null
+        'endTime' => null,
+        'isCloud' => null,
+        'cloudRunConfig' => null
     ];
 
     /**
@@ -120,7 +124,9 @@ class RunCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'configurations' => false,
         'customField' => false,
         'startTime' => false,
-        'endTime' => false
+        'endTime' => false,
+        'isCloud' => false,
+        'cloudRunConfig' => false
     ];
 
     /**
@@ -223,7 +229,9 @@ class RunCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'configurations' => 'configurations',
         'customField' => 'custom_field',
         'startTime' => 'start_time',
-        'endTime' => 'end_time'
+        'endTime' => 'end_time',
+        'isCloud' => 'is_cloud',
+        'cloudRunConfig' => 'cloud_run_config'
     ];
 
     /**
@@ -246,7 +254,9 @@ class RunCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'configurations' => 'setConfigurations',
         'customField' => 'setCustomField',
         'startTime' => 'setStartTime',
-        'endTime' => 'setEndTime'
+        'endTime' => 'setEndTime',
+        'isCloud' => 'setIsCloud',
+        'cloudRunConfig' => 'setCloudRunConfig'
     ];
 
     /**
@@ -269,7 +279,9 @@ class RunCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'configurations' => 'getConfigurations',
         'customField' => 'getCustomField',
         'startTime' => 'getStartTime',
-        'endTime' => 'getEndTime'
+        'endTime' => 'getEndTime',
+        'isCloud' => 'getIsCloud',
+        'cloudRunConfig' => 'getCloudRunConfig'
     ];
 
     /**
@@ -344,6 +356,8 @@ class RunCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('customField', $data ?? [], null);
         $this->setIfExists('startTime', $data ?? [], null);
         $this->setIfExists('endTime', $data ?? [], null);
+        $this->setIfExists('isCloud', $data ?? [], null);
+        $this->setIfExists('cloudRunConfig', $data ?? [], null);
     }
 
     /**
@@ -852,6 +866,60 @@ class RunCreate implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable endTime cannot be null');
         }
         $this->container['endTime'] = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets isCloud
+     *
+     * @return bool|null
+     */
+    public function getIsCloud()
+    {
+        return $this->container['isCloud'];
+    }
+
+    /**
+     * Sets isCloud
+     *
+     * @param bool|null $isCloud Indicates if the run is created for the Test Cases produced by AIDEN
+     *
+     * @return self
+     */
+    public function setIsCloud($isCloud)
+    {
+        if (is_null($isCloud)) {
+            throw new \InvalidArgumentException('non-nullable isCloud cannot be null');
+        }
+        $this->container['isCloud'] = $isCloud;
+
+        return $this;
+    }
+
+    /**
+     * Gets cloudRunConfig
+     *
+     * @return \Qase\APIClientV1\Model\RunCreateCloudRunConfig|null
+     */
+    public function getCloudRunConfig()
+    {
+        return $this->container['cloudRunConfig'];
+    }
+
+    /**
+     * Sets cloudRunConfig
+     *
+     * @param \Qase\APIClientV1\Model\RunCreateCloudRunConfig|null $cloudRunConfig cloudRunConfig
+     *
+     * @return self
+     */
+    public function setCloudRunConfig($cloudRunConfig)
+    {
+        if (is_null($cloudRunConfig)) {
+            throw new \InvalidArgumentException('non-nullable cloudRunConfig cannot be null');
+        }
+        $this->container['cloudRunConfig'] = $cloudRunConfig;
 
         return $this;
     }
