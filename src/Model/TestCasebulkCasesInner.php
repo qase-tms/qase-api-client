@@ -76,6 +76,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'steps' => '\Qase\APIClientV1\Model\TestStepCreate[]',
         'tags' => 'string[]',
         'params' => 'array<string,string[]>',
+        'parameters' => '\Qase\APIClientV1\Model\TestCaseParametercreate[]',
         'customField' => 'array<string,string>',
         'createdAt' => 'string',
         'updatedAt' => 'string',
@@ -108,6 +109,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'steps' => null,
         'tags' => null,
         'params' => null,
+        'parameters' => null,
         'customField' => null,
         'createdAt' => null,
         'updatedAt' => null,
@@ -138,6 +140,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'steps' => false,
         'tags' => false,
         'params' => true,
+        'parameters' => true,
         'customField' => false,
         'createdAt' => false,
         'updatedAt' => false,
@@ -248,6 +251,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'steps' => 'steps',
         'tags' => 'tags',
         'params' => 'params',
+        'parameters' => 'parameters',
         'customField' => 'custom_field',
         'createdAt' => 'created_at',
         'updatedAt' => 'updated_at',
@@ -278,6 +282,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'steps' => 'setSteps',
         'tags' => 'setTags',
         'params' => 'setParams',
+        'parameters' => 'setParameters',
         'customField' => 'setCustomField',
         'createdAt' => 'setCreatedAt',
         'updatedAt' => 'setUpdatedAt',
@@ -308,6 +313,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'steps' => 'getSteps',
         'tags' => 'getTags',
         'params' => 'getParams',
+        'parameters' => 'getParameters',
         'customField' => 'getCustomField',
         'createdAt' => 'getCreatedAt',
         'updatedAt' => 'getUpdatedAt',
@@ -389,6 +395,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('steps', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('params', $data ?? [], null);
+        $this->setIfExists('parameters', $data ?? [], null);
         $this->setIfExists('customField', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
         $this->setIfExists('updatedAt', $data ?? [], null);
@@ -911,6 +918,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
      * Gets params
      *
      * @return array<string,string[]>|null
+     * @deprecated
      */
     public function getParams()
     {
@@ -920,9 +928,10 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets params
      *
-     * @param array<string,string[]>|null $params params
+     * @param array<string,string[]>|null $params Deprecated, use `parameters` instead.
      *
      * @return self
+     * @deprecated
      */
     public function setParams($params)
     {
@@ -937,6 +946,40 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['params'] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameters
+     *
+     * @return \Qase\APIClientV1\Model\TestCaseParametercreate[]|null
+     */
+    public function getParameters()
+    {
+        return $this->container['parameters'];
+    }
+
+    /**
+     * Sets parameters
+     *
+     * @param \Qase\APIClientV1\Model\TestCaseParametercreate[]|null $parameters parameters
+     *
+     * @return self
+     */
+    public function setParameters($parameters)
+    {
+        if (is_null($parameters)) {
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['parameters'] = $parameters;
 
         return $this;
     }

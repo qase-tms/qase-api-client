@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * ParameterSingle
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * ParameterSingle Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
+ * @description Single parameter
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class ParameterSingle implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'ParameterSingle';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'title' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -70,7 +71,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'title' => null,
+        'values' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'title' => false,
+        'values' => false
     ];
 
     /**
@@ -168,7 +171,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'title' => 'title',
+        'values' => 'values'
     ];
 
     /**
@@ -177,7 +181,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'title' => 'setTitle',
+        'values' => 'setValues'
     ];
 
     /**
@@ -186,7 +191,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'title' => 'getTitle',
+        'values' => 'getValues'
     ];
 
     /**
@@ -246,6 +252,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('values', $data ?? [], null);
     }
 
     /**
@@ -275,6 +283,12 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['values'] === null) {
+            $invalidProperties[] = "'values' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,6 +303,60 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return string[]
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param string[] $values values
+     *
+     * @return self
+     */
+    public function setValues($values)
+    {
+        if (is_null($values)) {
+            throw new \InvalidArgumentException('non-nullable values cannot be null');
+        }
+        $this->container['values'] = $values;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

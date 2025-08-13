@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * ParameterGroup
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * ParameterGroup Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
+ * @description Group parameter
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class ParameterGroup implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'ParameterGroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'items' => '\Qase\APIClientV1\Model\ParameterSingle[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'items' => null
     ];
 
     /**
@@ -79,7 +79,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'items' => false
     ];
 
     /**
@@ -168,7 +168,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'items' => 'items'
     ];
 
     /**
@@ -177,7 +177,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'items' => 'setItems'
     ];
 
     /**
@@ -186,7 +186,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'items' => 'getItems'
     ];
 
     /**
@@ -246,6 +246,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -275,6 +276,13 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
+        }
+        if ((count($this->container['items']) < 2)) {
+            $invalidProperties[] = "invalid value for 'items', number of items must be greater than or equal to 2.";
+        }
+
         return $invalidProperties;
     }
 
@@ -289,6 +297,38 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets items
+     *
+     * @return \Qase\APIClientV1\Model\ParameterSingle[]
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \Qase\APIClientV1\Model\ParameterSingle[] $items items
+     *
+     * @return self
+     */
+    public function setItems($items)
+    {
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        }
+
+
+        if ((count($items) < 2)) {
+            throw new \InvalidArgumentException('invalid length for $items when calling ParameterGroup., number of items must be greater than or equal to 2.');
+        }
+        $this->container['items'] = $items;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

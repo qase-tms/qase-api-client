@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * SharedParameterCreate
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * SharedParameterCreate Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class SharedParameterCreate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'SharedParameterCreate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,11 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'title' => 'string',
+        'type' => 'string',
+        'isEnabledForAllProjects' => 'bool',
+        'parameters' => '\Qase\APIClientV1\Model\SharedParameterParameter',
+        'projectCodes' => 'string[]'
     ];
 
     /**
@@ -70,7 +73,11 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'title' => null,
+        'type' => null,
+        'isEnabledForAllProjects' => null,
+        'parameters' => null,
+        'projectCodes' => null
     ];
 
     /**
@@ -79,7 +86,11 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'title' => false,
+        'type' => false,
+        'isEnabledForAllProjects' => false,
+        'parameters' => false,
+        'projectCodes' => false
     ];
 
     /**
@@ -168,7 +179,11 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'title' => 'title',
+        'type' => 'type',
+        'isEnabledForAllProjects' => 'is_enabled_for_all_projects',
+        'parameters' => 'parameters',
+        'projectCodes' => 'project_codes'
     ];
 
     /**
@@ -177,7 +192,11 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'title' => 'setTitle',
+        'type' => 'setType',
+        'isEnabledForAllProjects' => 'setIsEnabledForAllProjects',
+        'parameters' => 'setParameters',
+        'projectCodes' => 'setProjectCodes'
     ];
 
     /**
@@ -186,7 +205,11 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'title' => 'getTitle',
+        'type' => 'getType',
+        'isEnabledForAllProjects' => 'getIsEnabledForAllProjects',
+        'parameters' => 'getParameters',
+        'projectCodes' => 'getProjectCodes'
     ];
 
     /**
@@ -230,6 +253,21 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_SINGLE = 'single';
+    public const TYPE_GROUP = 'group';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_SINGLE,
+            self::TYPE_GROUP,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -246,6 +284,11 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('isEnabledForAllProjects', $data ?? [], null);
+        $this->setIfExists('parameters', $data ?? [], null);
+        $this->setIfExists('projectCodes', $data ?? [], null);
     }
 
     /**
@@ -275,6 +318,31 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ((mb_strlen($this->container['title']) > 255)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 255.";
+        }
+
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['isEnabledForAllProjects'] === null) {
+            $invalidProperties[] = "'isEnabledForAllProjects' can't be null";
+        }
+        if ($this->container['parameters'] === null) {
+            $invalidProperties[] = "'parameters' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,6 +357,155 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        }
+        if ((mb_strlen($title) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling SharedParameterCreate., must be smaller than or equal to 255.');
+        }
+
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets isEnabledForAllProjects
+     *
+     * @return bool
+     */
+    public function getIsEnabledForAllProjects()
+    {
+        return $this->container['isEnabledForAllProjects'];
+    }
+
+    /**
+     * Sets isEnabledForAllProjects
+     *
+     * @param bool $isEnabledForAllProjects isEnabledForAllProjects
+     *
+     * @return self
+     */
+    public function setIsEnabledForAllProjects($isEnabledForAllProjects)
+    {
+        if (is_null($isEnabledForAllProjects)) {
+            throw new \InvalidArgumentException('non-nullable isEnabledForAllProjects cannot be null');
+        }
+        $this->container['isEnabledForAllProjects'] = $isEnabledForAllProjects;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameters
+     *
+     * @return \Qase\APIClientV1\Model\SharedParameterParameter
+     */
+    public function getParameters()
+    {
+        return $this->container['parameters'];
+    }
+
+    /**
+     * Sets parameters
+     *
+     * @param \Qase\APIClientV1\Model\SharedParameterParameter $parameters parameters
+     *
+     * @return self
+     */
+    public function setParameters($parameters)
+    {
+        if (is_null($parameters)) {
+            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+        }
+        $this->container['parameters'] = $parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets projectCodes
+     *
+     * @return string[]|null
+     */
+    public function getProjectCodes()
+    {
+        return $this->container['projectCodes'];
+    }
+
+    /**
+     * Sets projectCodes
+     *
+     * @param string[]|null $projectCodes List of project codes to associate with this shared parameter
+     *
+     * @return self
+     */
+    public function setProjectCodes($projectCodes)
+    {
+        if (is_null($projectCodes)) {
+            throw new \InvalidArgumentException('non-nullable projectCodes cannot be null');
+        }
+        $this->container['projectCodes'] = $projectCodes;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **attachments** | [**\Qase\APIClientV1\Model\Attachment[]**](Attachment.md) |  | [optional]
 **stepsType** | **string** |  | [optional]
 **steps** | [**\Qase\APIClientV1\Model\TestStep[]**](TestStep.md) |  | [optional]
-**params** | [**\Qase\APIClientV1\Model\TestCaseParams**](TestCaseParams.md) |  | [optional]
+**params** | [**\Qase\APIClientV1\Model\QqlTestCaseParams**](QqlTestCaseParams.md) |  | [optional]
 **tags** | [**\Qase\APIClientV1\Model\TagValue[]**](TagValue.md) |  | [optional]
 **memberId** | **int** | Deprecated, use &#x60;author_id&#x60; instead. | [optional]
 **authorId** | **int** |  | [optional]

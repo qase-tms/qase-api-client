@@ -79,7 +79,7 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'attachments' => '\Qase\APIClientV1\Model\Attachment[]',
         'stepsType' => 'string',
         'steps' => '\Qase\APIClientV1\Model\TestStep[]',
-        'params' => '\Qase\APIClientV1\Model\TestCaseParams',
+        'params' => '\Qase\APIClientV1\Model\QqlTestCaseParams',
         'tags' => '\Qase\APIClientV1\Model\TagValue[]',
         'memberId' => 'int',
         'authorId' => 'int',
@@ -1094,7 +1094,7 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets params
      *
-     * @return \Qase\APIClientV1\Model\TestCaseParams|null
+     * @return \Qase\APIClientV1\Model\QqlTestCaseParams|null
      */
     public function getParams()
     {
@@ -1104,7 +1104,7 @@ class QqlTestCase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets params
      *
-     * @param \Qase\APIClientV1\Model\TestCaseParams|null $params params
+     * @param \Qase\APIClientV1\Model\QqlTestCaseParams|null $params params
      *
      * @return self
      */

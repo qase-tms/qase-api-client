@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * ParameterShared
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * ParameterShared Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
+ * @description Shared parameter
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class ParameterShared implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'ParameterShared';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'sharedId' => 'string'
     ];
 
     /**
@@ -70,7 +70,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'sharedId' => 'uuid'
     ];
 
     /**
@@ -79,7 +79,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'sharedId' => false
     ];
 
     /**
@@ -168,7 +168,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'sharedId' => 'shared_id'
     ];
 
     /**
@@ -177,7 +177,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'sharedId' => 'setSharedId'
     ];
 
     /**
@@ -186,7 +186,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'sharedId' => 'getSharedId'
     ];
 
     /**
@@ -246,6 +246,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('sharedId', $data ?? [], null);
     }
 
     /**
@@ -275,6 +276,9 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['sharedId'] === null) {
+            $invalidProperties[] = "'sharedId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,6 +293,33 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets sharedId
+     *
+     * @return string
+     */
+    public function getSharedId()
+    {
+        return $this->container['sharedId'];
+    }
+
+    /**
+     * Sets sharedId
+     *
+     * @param string $sharedId sharedId
+     *
+     * @return self
+     */
+    public function setSharedId($sharedId)
+    {
+        if (is_null($sharedId)) {
+            throw new \InvalidArgumentException('non-nullable sharedId cannot be null');
+        }
+        $this->container['sharedId'] = $sharedId;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

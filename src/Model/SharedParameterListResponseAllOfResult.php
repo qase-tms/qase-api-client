@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * SharedParameterListResponseAllOfResult
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * SharedParameterListResponseAllOfResult Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class SharedParameterListResponseAllOfResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'SharedParameterListResponse_allOf_result';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'total' => 'int',
+        'entities' => '\Qase\APIClientV1\Model\SharedParameter[]'
     ];
 
     /**
@@ -70,7 +70,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'total' => null,
+        'entities' => null
     ];
 
     /**
@@ -79,7 +80,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'total' => false,
+        'entities' => false
     ];
 
     /**
@@ -168,7 +170,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'total' => 'total',
+        'entities' => 'entities'
     ];
 
     /**
@@ -177,7 +180,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'total' => 'setTotal',
+        'entities' => 'setEntities'
     ];
 
     /**
@@ -186,7 +190,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'total' => 'getTotal',
+        'entities' => 'getEntities'
     ];
 
     /**
@@ -246,6 +251,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('entities', $data ?? [], null);
     }
 
     /**
@@ -275,6 +282,12 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
+        }
+        if ($this->container['entities'] === null) {
+            $invalidProperties[] = "'entities' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,6 +302,60 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        }
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets entities
+     *
+     * @return \Qase\APIClientV1\Model\SharedParameter[]
+     */
+    public function getEntities()
+    {
+        return $this->container['entities'];
+    }
+
+    /**
+     * Sets entities
+     *
+     * @param \Qase\APIClientV1\Model\SharedParameter[] $entities entities
+     *
+     * @return self
+     */
+    public function setEntities($entities)
+    {
+        if (is_null($entities)) {
+            throw new \InvalidArgumentException('non-nullable entities cannot be null');
+        }
+        $this->container['entities'] = $entities;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
