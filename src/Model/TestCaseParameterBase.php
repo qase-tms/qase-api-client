@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * TestCaseParameterBase
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * TestCaseParameterBase Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class TestCaseParameterBase implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'TestCaseParameterBase';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,9 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'type' => 'string',
+        'items' => '\Qase\APIClientV1\Model\ParameterSingle[]',
+        'sharedId' => 'string'
     ];
 
     /**
@@ -70,7 +71,9 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'type' => null,
+        'items' => null,
+        'sharedId' => 'uuid'
     ];
 
     /**
@@ -79,7 +82,9 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'type' => false,
+        'items' => false,
+        'sharedId' => true
     ];
 
     /**
@@ -168,7 +173,9 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'type' => 'type',
+        'items' => 'items',
+        'sharedId' => 'shared_id'
     ];
 
     /**
@@ -177,7 +184,9 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'type' => 'setType',
+        'items' => 'setItems',
+        'sharedId' => 'setSharedId'
     ];
 
     /**
@@ -186,7 +195,9 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'type' => 'getType',
+        'items' => 'getItems',
+        'sharedId' => 'getSharedId'
     ];
 
     /**
@@ -246,6 +257,9 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('sharedId', $data ?? [], null);
     }
 
     /**
@@ -275,6 +289,12 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,6 +309,94 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets items
+     *
+     * @return \Qase\APIClientV1\Model\ParameterSingle[]
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \Qase\APIClientV1\Model\ParameterSingle[] $items items
+     *
+     * @return self
+     */
+    public function setItems($items)
+    {
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        }
+        $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets sharedId
+     *
+     * @return string|null
+     */
+    public function getSharedId()
+    {
+        return $this->container['sharedId'];
+    }
+
+    /**
+     * Sets sharedId
+     *
+     * @param string|null $sharedId sharedId
+     *
+     * @return self
+     */
+    public function setSharedId($sharedId)
+    {
+        if (is_null($sharedId)) {
+            array_push($this->openAPINullablesSetToNull, 'sharedId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sharedId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['sharedId'] = $sharedId;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

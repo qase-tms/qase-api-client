@@ -105,7 +105,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
         'milestoneId' => 'int',
         'suiteId' => 'int',
         'stepsType' => 'string',
-        'params' => '\Qase\APIClientV1\Model\TestCaseParams',
+        'params' => '\Qase\APIClientV1\Model\QqlTestCaseParams',
         'authorId' => 'int',
         'updatedBy' => 'int',
         'actualResult' => 'string',
@@ -2044,7 +2044,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
     /**
      * Gets params
      *
-     * @return \Qase\APIClientV1\Model\TestCaseParams|null
+     * @return \Qase\APIClientV1\Model\QqlTestCaseParams|null
      */
     public function getParams()
     {
@@ -2054,7 +2054,7 @@ class SearchResponseAllOfResultEntities implements ModelInterface, ArrayAccess, 
     /**
      * Sets params
      *
-     * @param \Qase\APIClientV1\Model\TestCaseParams|null $params params
+     * @param \Qase\APIClientV1\Model\QqlTestCaseParams|null $params params
      *
      * @return self
      */

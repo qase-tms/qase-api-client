@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * SharedParameterResponse
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * SharedParameterResponse Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class SharedParameterResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'SharedParameterResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'status' => 'bool',
+        'result' => '\Qase\APIClientV1\Model\SharedParameter'
     ];
 
     /**
@@ -70,7 +70,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'status' => null,
+        'result' => null
     ];
 
     /**
@@ -79,7 +80,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'status' => false,
+        'result' => false
     ];
 
     /**
@@ -168,7 +170,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'status' => 'status',
+        'result' => 'result'
     ];
 
     /**
@@ -177,7 +180,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'status' => 'setStatus',
+        'result' => 'setResult'
     ];
 
     /**
@@ -186,7 +190,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'status' => 'getStatus',
+        'result' => 'getResult'
     ];
 
     /**
@@ -246,6 +251,8 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('result', $data ?? [], null);
     }
 
     /**
@@ -289,6 +296,60 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets status
+     *
+     * @return bool|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param bool|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     *
+     * @return \Qase\APIClientV1\Model\SharedParameter|null
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param \Qase\APIClientV1\Model\SharedParameter|null $result result
+     *
+     * @return self
+     */
+    public function setResult($result)
+    {
+        if (is_null($result)) {
+            throw new \InvalidArgumentException('non-nullable result cannot be null');
+        }
+        $this->container['result'] = $result;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

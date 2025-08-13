@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 **milestoneId** | **int** |  | [optional]
 **suiteId** | **int** |  | [optional]
 **stepsType** | **string** |  | [optional]
-**params** | [**\Qase\APIClientV1\Model\TestCaseParams**](TestCaseParams.md) |  | [optional]
+**params** | [**\Qase\APIClientV1\Model\QqlTestCaseParams**](QqlTestCaseParams.md) |  | [optional]
 **authorId** | **int** |  | [optional]
 **updatedBy** | **int** | Author ID of the last update. | [optional]
 **actualResult** | **string** |  | [optional]

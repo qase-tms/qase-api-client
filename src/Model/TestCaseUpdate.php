@@ -76,6 +76,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => '\Qase\APIClientV1\Model\TestStepCreate[]',
         'tags' => 'string[]',
         'params' => 'array<string,string[]>',
+        'parameters' => '\Qase\APIClientV1\Model\TestCaseParametercreate[]',
         'customField' => 'array<string,string>'
     ];
 
@@ -105,6 +106,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => null,
         'tags' => null,
         'params' => null,
+        'parameters' => null,
         'customField' => null
     ];
 
@@ -132,6 +134,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => false,
         'tags' => false,
         'params' => true,
+        'parameters' => true,
         'customField' => false
     ];
 
@@ -239,6 +242,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => 'steps',
         'tags' => 'tags',
         'params' => 'params',
+        'parameters' => 'parameters',
         'customField' => 'custom_field'
     ];
 
@@ -266,6 +270,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => 'setSteps',
         'tags' => 'setTags',
         'params' => 'setParams',
+        'parameters' => 'setParameters',
         'customField' => 'setCustomField'
     ];
 
@@ -293,6 +298,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => 'getSteps',
         'tags' => 'getTags',
         'params' => 'getParams',
+        'parameters' => 'getParameters',
         'customField' => 'getCustomField'
     ];
 
@@ -371,6 +377,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('steps', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('params', $data ?? [], null);
+        $this->setIfExists('parameters', $data ?? [], null);
         $this->setIfExists('customField', $data ?? [], null);
     }
 
@@ -887,6 +894,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets params
      *
      * @return array<string,string[]>|null
+     * @deprecated
      */
     public function getParams()
     {
@@ -896,9 +904,10 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets params
      *
-     * @param array<string,string[]>|null $params params
+     * @param array<string,string[]>|null $params Deprecated, use `parameters` instead.
      *
      * @return self
+     * @deprecated
      */
     public function setParams($params)
     {
@@ -913,6 +922,40 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['params'] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameters
+     *
+     * @return \Qase\APIClientV1\Model\TestCaseParametercreate[]|null
+     */
+    public function getParameters()
+    {
+        return $this->container['parameters'];
+    }
+
+    /**
+     * Sets parameters
+     *
+     * @param \Qase\APIClientV1\Model\TestCaseParametercreate[]|null $parameters parameters
+     *
+     * @return self
+     */
+    public function setParameters($parameters)
+    {
+        if (is_null($parameters)) {
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['parameters'] = $parameters;
 
         return $this;
     }

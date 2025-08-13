@@ -79,6 +79,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'stepsType' => 'string',
         'steps' => '\Qase\APIClientV1\Model\TestStep[]',
         'params' => '\Qase\APIClientV1\Model\TestCaseParams',
+        'parameters' => '\Qase\APIClientV1\Model\TestCaseParameter[]',
         'tags' => '\Qase\APIClientV1\Model\TagValue[]',
         'memberId' => 'int',
         'authorId' => 'int',
@@ -119,6 +120,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'stepsType' => null,
         'steps' => null,
         'params' => null,
+        'parameters' => null,
         'tags' => null,
         'memberId' => 'int64',
         'authorId' => 'int64',
@@ -157,6 +159,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'stepsType' => true,
         'steps' => false,
         'params' => false,
+        'parameters' => false,
         'tags' => false,
         'memberId' => false,
         'authorId' => false,
@@ -275,6 +278,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'stepsType' => 'steps_type',
         'steps' => 'steps',
         'params' => 'params',
+        'parameters' => 'parameters',
         'tags' => 'tags',
         'memberId' => 'member_id',
         'authorId' => 'author_id',
@@ -313,6 +317,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'stepsType' => 'setStepsType',
         'steps' => 'setSteps',
         'params' => 'setParams',
+        'parameters' => 'setParameters',
         'tags' => 'setTags',
         'memberId' => 'setMemberId',
         'authorId' => 'setAuthorId',
@@ -351,6 +356,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'stepsType' => 'getStepsType',
         'steps' => 'getSteps',
         'params' => 'getParams',
+        'parameters' => 'getParameters',
         'tags' => 'getTags',
         'memberId' => 'getMemberId',
         'authorId' => 'getAuthorId',
@@ -440,6 +446,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('stepsType', $data ?? [], null);
         $this->setIfExists('steps', $data ?? [], null);
         $this->setIfExists('params', $data ?? [], null);
+        $this->setIfExists('parameters', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('memberId', $data ?? [], null);
         $this->setIfExists('authorId', $data ?? [], null);
@@ -1079,6 +1086,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets params
      *
      * @return \Qase\APIClientV1\Model\TestCaseParams|null
+     * @deprecated
      */
     public function getParams()
     {
@@ -1091,6 +1099,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param \Qase\APIClientV1\Model\TestCaseParams|null $params params
      *
      * @return self
+     * @deprecated
      */
     public function setParams($params)
     {
@@ -1098,6 +1107,33 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable params cannot be null');
         }
         $this->container['params'] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameters
+     *
+     * @return \Qase\APIClientV1\Model\TestCaseParameter[]|null
+     */
+    public function getParameters()
+    {
+        return $this->container['parameters'];
+    }
+
+    /**
+     * Sets parameters
+     *
+     * @param \Qase\APIClientV1\Model\TestCaseParameter[]|null $parameters parameters
+     *
+     * @return self
+     */
+    public function setParameters($parameters)
+    {
+        if (is_null($parameters)) {
+            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+        }
+        $this->container['parameters'] = $parameters;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * SharedParameterParameter
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * SharedParameterParameter Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class SharedParameterParameter implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'SharedParameterParameter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -1,6 +1,6 @@
 <?php
 /**
- * TestCaseParams
+ * UuidResponseAllOfResult
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * TestCaseParams Class Doc Comment
+ * UuidResponseAllOfResult Class Doc Comment
  *
  * @category Class
- * @description Deprecated, use &#x60;parameters&#x60; instead.
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class UuidResponseAllOfResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TestCase_params';
+    protected static $openAPIModelName = 'UuidResponse_allOf_result';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'id' => 'string'
     ];
 
     /**
@@ -70,7 +69,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'id' => 'uuid'
     ];
 
     /**
@@ -79,7 +78,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'id' => false
     ];
 
     /**
@@ -168,7 +167,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'id' => 'id'
     ];
 
     /**
@@ -177,7 +176,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'id' => 'setId'
     ];
 
     /**
@@ -186,7 +185,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'id' => 'getId'
     ];
 
     /**
@@ -246,6 +245,7 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -289,6 +289,33 @@ class TestCaseParams implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
