@@ -1,6 +1,6 @@
 <?php
 /**
- * ConfigurationCreate
+ * UuidResponse1
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * ConfigurationCreate Class Doc Comment
+ * UuidResponse1 Class Doc Comment
  *
  * @category Class
  * @package  Qase\APIClientV1
@@ -41,7 +41,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializable
+class UuidResponse1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConfigurationCreate';
+    protected static $openAPIModelName = 'UuidResponse_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'title' => 'string',
-        'groupId' => 'int'
+        'status' => 'bool',
+        'result' => '\Qase\APIClientV1\Model\UuidResponseAllOfResult'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'title' => null,
-        'groupId' => null
+        'status' => null,
+        'result' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'title' => false,
-        'groupId' => false
+        'status' => false,
+        'result' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
-        'groupId' => 'group_id'
+        'status' => 'status',
+        'result' => 'result'
     ];
 
     /**
@@ -180,8 +180,8 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
-        'groupId' => 'setGroupId'
+        'status' => 'setStatus',
+        'result' => 'setResult'
     ];
 
     /**
@@ -190,8 +190,8 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
-        'groupId' => 'getGroupId'
+        'status' => 'getStatus',
+        'result' => 'getResult'
     ];
 
     /**
@@ -251,8 +251,8 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('groupId', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('result', $data ?? [], null);
     }
 
     /**
@@ -282,16 +282,6 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
-        if ((mb_strlen($this->container['title']) > 255)) {
-            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 255.";
-        }
-
-        if ($this->container['groupId'] === null) {
-            $invalidProperties[] = "'groupId' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -308,59 +298,55 @@ class ConfigurationCreate implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets title
+     * Gets status
      *
-     * @return string
+     * @return bool|null
      */
-    public function getTitle()
+    public function getStatus()
     {
-        return $this->container['title'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets title
+     * Sets status
      *
-     * @param string $title title
+     * @param bool|null $status status
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setStatus($status)
     {
-        if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        if ((mb_strlen($title) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $title when calling ConfigurationCreate., must be smaller than or equal to 255.');
-        }
-
-        $this->container['title'] = $title;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets groupId
+     * Gets result
      *
-     * @return int
+     * @return \Qase\APIClientV1\Model\UuidResponseAllOfResult|null
      */
-    public function getGroupId()
+    public function getResult()
     {
-        return $this->container['groupId'];
+        return $this->container['result'];
     }
 
     /**
-     * Sets groupId
+     * Sets result
      *
-     * @param int $groupId groupId
+     * @param \Qase\APIClientV1\Model\UuidResponseAllOfResult|null $result result
      *
      * @return self
      */
-    public function setGroupId($groupId)
+    public function setResult($result)
     {
-        if (is_null($groupId)) {
-            throw new \InvalidArgumentException('non-nullable groupId cannot be null');
+        if (is_null($result)) {
+            throw new \InvalidArgumentException('non-nullable result cannot be null');
         }
-        $this->container['groupId'] = $groupId;
+        $this->container['result'] = $result;
 
         return $this;
     }

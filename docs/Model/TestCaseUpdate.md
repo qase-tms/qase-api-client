@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **steps** | [**\Qase\APIClientV1\Model\TestStepCreate[]**](TestStepCreate.md) |  | [optional]
 **tags** | **string[]** |  | [optional]
 **params** | **array<string,string[]>** | Deprecated, use &#x60;parameters&#x60; instead. | [optional]
-**parameters** | [**\Qase\APIClientV1\Model\TestCaseParametercreate[]**](TestCaseParametercreate.md) |  | [optional]
+**parameters** | [**\Qase\APIClientV1\Model\TestCaseParameterCreate[]**](TestCaseParameterCreate.md) |  | [optional]
 **customField** | **array<string,string>** | A map of custom fields values (id &#x3D;&gt; value) | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

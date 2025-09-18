@@ -1,4 +1,4 @@
-# # ResultcreateBulk
+# # ResultCreateBulk
 
 ## Properties
 

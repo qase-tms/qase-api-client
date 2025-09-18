@@ -81,7 +81,7 @@ try {
 ## `createResultBulk()`
 
 ```php
-createResultBulk($code, $id, $resultcreateBulk): \Qase\APIClientV1\Model\BaseResponse
+createResultBulk($code, $id, $resultCreateBulk): \Qase\APIClientV1\Model\BaseResponse
 ```
 
 Bulk create test run result
@@ -109,10 +109,10 @@ $apiInstance = new Qase\APIClientV1\Api\ResultsApi(
 );
 $code = 'code_example'; // string | Code of project, where to search entities.
 $id = 56; // int | Identifier.
-$resultcreateBulk = new \Qase\APIClientV1\Model\ResultcreateBulk(); // \Qase\APIClientV1\Model\ResultcreateBulk
+$resultCreateBulk = new \Qase\APIClientV1\Model\ResultCreateBulk(); // \Qase\APIClientV1\Model\ResultCreateBulk
 
 try {
-    $result = $apiInstance->createResultBulk($code, $id, $resultcreateBulk);
+    $result = $apiInstance->createResultBulk($code, $id, $resultCreateBulk);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ResultsApi->createResultBulk: ', $e->getMessage(), PHP_EOL;
@@ -125,7 +125,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| Code of project, where to search entities. | |
 | **id** | **int**| Identifier. | |
-| **resultcreateBulk** | [**\Qase\APIClientV1\Model\ResultcreateBulk**](../Model/ResultcreateBulk.md)|  | |
+| **resultCreateBulk** | [**\Qase\APIClientV1\Model\ResultCreateBulk**](../Model/ResultCreateBulk.md)|  | |
 
 ### Return type
 
