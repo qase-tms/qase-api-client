@@ -74,7 +74,7 @@ try {
 ## `deleteSharedParameter()`
 
 ```php
-deleteSharedParameter($id): \Qase\APIClientV1\Model\UuidResponse
+deleteSharedParameter($id): \Qase\APIClientV1\Model\UuidResponse1
 ```
 
 Delete shared parameter
@@ -118,7 +118,7 @@ try {
 
 ### Return type
 
-[**\Qase\APIClientV1\Model\UuidResponse**](../Model/UuidResponse.md)
+[**\Qase\APIClientV1\Model\UuidResponse1**](../Model/UuidResponse1.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ try {
 ## `updateSharedParameter()`
 
 ```php
-updateSharedParameter($id, $sharedParameterUpdate): \Qase\APIClientV1\Model\UuidResponse
+updateSharedParameter($id, $sharedParameterUpdate): \Qase\APIClientV1\Model\UuidResponse1
 ```
 
 Update shared parameter
@@ -308,7 +308,7 @@ try {
 
 ### Return type
 
-[**\Qase\APIClientV1\Model\UuidResponse**](../Model/UuidResponse.md)
+[**\Qase\APIClientV1\Model\UuidResponse1**](../Model/UuidResponse1.md)
 
 ### Authorization
 

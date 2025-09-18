@@ -228,7 +228,7 @@ $apiInstance = new Qase\APIClientV1\Api\AttachmentsApi(
     $config
 );
 $code = 'code_example'; // string | Code of project, where to search entities.
-$file = array("/path/to/file.txt"); // \SplFileObject[]
+$file = array('/path/to/file.txt'); // \SplFileObject[]
 
 try {
     $result = $apiInstance->uploadAttachment($code, $file);

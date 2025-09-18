@@ -355,7 +355,7 @@ try {
 ## `runUpdateExternalIssue()`
 
 ```php
-runUpdateExternalIssue($code, $runexternalIssues)
+runUpdateExternalIssue($code, $runExternalIssues)
 ```
 
 Update external issues for runs
@@ -382,10 +382,10 @@ $apiInstance = new Qase\APIClientV1\Api\RunsApi(
     $config
 );
 $code = 'code_example'; // string | Code of project, where to search entities.
-$runexternalIssues = new \Qase\APIClientV1\Model\RunexternalIssues(); // \Qase\APIClientV1\Model\RunexternalIssues
+$runExternalIssues = new \Qase\APIClientV1\Model\RunExternalIssues(); // \Qase\APIClientV1\Model\RunExternalIssues
 
 try {
-    $apiInstance->runUpdateExternalIssue($code, $runexternalIssues);
+    $apiInstance->runUpdateExternalIssue($code, $runExternalIssues);
 } catch (Exception $e) {
     echo 'Exception when calling RunsApi->runUpdateExternalIssue: ', $e->getMessage(), PHP_EOL;
 }
@@ -396,7 +396,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| Code of project, where to search entities. | |
-| **runexternalIssues** | [**\Qase\APIClientV1\Model\RunexternalIssues**](../Model/RunexternalIssues.md)|  | |
+| **runExternalIssues** | [**\Qase\APIClientV1\Model\RunExternalIssues**](../Model/RunExternalIssues.md)|  | |
 
 ### Return type
 

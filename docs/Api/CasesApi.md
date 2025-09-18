@@ -81,7 +81,7 @@ try {
 ## `caseAttachExternalIssue()`
 
 ```php
-caseAttachExternalIssue($code, $testCaseexternalIssues): \Qase\APIClientV1\Model\BaseResponse
+caseAttachExternalIssue($code, $testCaseExternalIssues): \Qase\APIClientV1\Model\BaseResponse
 ```
 
 Attach the external issues to the test cases
@@ -106,10 +106,10 @@ $apiInstance = new Qase\APIClientV1\Api\CasesApi(
     $config
 );
 $code = 'code_example'; // string | Code of project, where to search entities.
-$testCaseexternalIssues = new \Qase\APIClientV1\Model\TestCaseexternalIssues(); // \Qase\APIClientV1\Model\TestCaseexternalIssues
+$testCaseExternalIssues = new \Qase\APIClientV1\Model\TestCaseExternalIssues(); // \Qase\APIClientV1\Model\TestCaseExternalIssues
 
 try {
-    $result = $apiInstance->caseAttachExternalIssue($code, $testCaseexternalIssues);
+    $result = $apiInstance->caseAttachExternalIssue($code, $testCaseExternalIssues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CasesApi->caseAttachExternalIssue: ', $e->getMessage(), PHP_EOL;
@@ -121,7 +121,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| Code of project, where to search entities. | |
-| **testCaseexternalIssues** | [**\Qase\APIClientV1\Model\TestCaseexternalIssues**](../Model/TestCaseexternalIssues.md)|  | |
+| **testCaseExternalIssues** | [**\Qase\APIClientV1\Model\TestCaseExternalIssues**](../Model/TestCaseExternalIssues.md)|  | |
 
 ### Return type
 
@@ -143,7 +143,7 @@ try {
 ## `caseDetachExternalIssue()`
 
 ```php
-caseDetachExternalIssue($code, $testCaseexternalIssues): \Qase\APIClientV1\Model\BaseResponse
+caseDetachExternalIssue($code, $testCaseExternalIssues): \Qase\APIClientV1\Model\BaseResponse
 ```
 
 Detach the external issues from the test cases
@@ -168,10 +168,10 @@ $apiInstance = new Qase\APIClientV1\Api\CasesApi(
     $config
 );
 $code = 'code_example'; // string | Code of project, where to search entities.
-$testCaseexternalIssues = new \Qase\APIClientV1\Model\TestCaseexternalIssues(); // \Qase\APIClientV1\Model\TestCaseexternalIssues
+$testCaseExternalIssues = new \Qase\APIClientV1\Model\TestCaseExternalIssues(); // \Qase\APIClientV1\Model\TestCaseExternalIssues
 
 try {
-    $result = $apiInstance->caseDetachExternalIssue($code, $testCaseexternalIssues);
+    $result = $apiInstance->caseDetachExternalIssue($code, $testCaseExternalIssues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CasesApi->caseDetachExternalIssue: ', $e->getMessage(), PHP_EOL;
@@ -183,7 +183,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| Code of project, where to search entities. | |
-| **testCaseexternalIssues** | [**\Qase\APIClientV1\Model\TestCaseexternalIssues**](../Model/TestCaseexternalIssues.md)|  | |
+| **testCaseExternalIssues** | [**\Qase\APIClientV1\Model\TestCaseExternalIssues**](../Model/TestCaseExternalIssues.md)|  | |
 
 ### Return type
 
