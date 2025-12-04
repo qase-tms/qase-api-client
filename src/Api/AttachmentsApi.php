@@ -1206,7 +1206,7 @@ class AttachmentsApi
         $formDataProcessor = new FormDataProcessor();
 
         $formData = $formDataProcessor->prepare([
-            'file' => $file,
+            'file[]' => $file,
         ]);
 
         $formParams = $formDataProcessor->flatten($formData);

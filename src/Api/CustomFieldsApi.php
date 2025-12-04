@@ -413,7 +413,7 @@ class CustomFieldsApi
     /**
      * Operation deleteCustomField
      *
-     * Delete Custom Field by id
+     * Delete Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomField'] to see the possible values for this operation
@@ -431,7 +431,7 @@ class CustomFieldsApi
     /**
      * Operation deleteCustomFieldWithHttpInfo
      *
-     * Delete Custom Field by id
+     * Delete Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomField'] to see the possible values for this operation
@@ -516,7 +516,7 @@ class CustomFieldsApi
     /**
      * Operation deleteCustomFieldAsync
      *
-     * Delete Custom Field by id
+     * Delete Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomField'] to see the possible values for this operation
@@ -537,7 +537,7 @@ class CustomFieldsApi
     /**
      * Operation deleteCustomFieldAsyncWithHttpInfo
      *
-     * Delete Custom Field by id
+     * Delete Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomField'] to see the possible values for this operation
@@ -686,7 +686,7 @@ class CustomFieldsApi
     /**
      * Operation getCustomField
      *
-     * Get Custom Field by id
+     * Get Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomField'] to see the possible values for this operation
@@ -704,7 +704,7 @@ class CustomFieldsApi
     /**
      * Operation getCustomFieldWithHttpInfo
      *
-     * Get Custom Field by id
+     * Get Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomField'] to see the possible values for this operation
@@ -789,7 +789,7 @@ class CustomFieldsApi
     /**
      * Operation getCustomFieldAsync
      *
-     * Get Custom Field by id
+     * Get Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomField'] to see the possible values for this operation
@@ -810,7 +810,7 @@ class CustomFieldsApi
     /**
      * Operation getCustomFieldAsyncWithHttpInfo
      *
-     * Get Custom Field by id
+     * Get Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomField'] to see the possible values for this operation
@@ -1284,7 +1284,7 @@ class CustomFieldsApi
     /**
      * Operation updateCustomField
      *
-     * Update Custom Field by id
+     * Update Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  \Qase\APIClientV1\Model\CustomFieldUpdate $customFieldUpdate customFieldUpdate (required)
@@ -1303,7 +1303,7 @@ class CustomFieldsApi
     /**
      * Operation updateCustomFieldWithHttpInfo
      *
-     * Update Custom Field by id
+     * Update Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  \Qase\APIClientV1\Model\CustomFieldUpdate $customFieldUpdate (required)
@@ -1389,7 +1389,7 @@ class CustomFieldsApi
     /**
      * Operation updateCustomFieldAsync
      *
-     * Update Custom Field by id
+     * Update Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  \Qase\APIClientV1\Model\CustomFieldUpdate $customFieldUpdate (required)
@@ -1411,7 +1411,7 @@ class CustomFieldsApi
     /**
      * Operation updateCustomFieldAsyncWithHttpInfo
      *
-     * Update Custom Field by id
+     * Update Custom Field
      *
      * @param  int $id Identifier. (required)
      * @param  \Qase\APIClientV1\Model\CustomFieldUpdate $customFieldUpdate (required)
