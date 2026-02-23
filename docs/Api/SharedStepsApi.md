@@ -1,5 +1,7 @@
 # Qase\APIClientV1\SharedStepsApi
 
+
+
 All URIs are relative to https://api.qase.io/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
