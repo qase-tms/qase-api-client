@@ -1,14 +1,16 @@
 # Qase\APIClientV1\CustomFieldsApi
 
+
+
 All URIs are relative to https://api.qase.io/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createCustomField()**](CustomFieldsApi.md#createCustomField) | **POST** /custom_field | Create new Custom Field |
-| [**deleteCustomField()**](CustomFieldsApi.md#deleteCustomField) | **DELETE** /custom_field/{id} | Delete Custom Field by id |
-| [**getCustomField()**](CustomFieldsApi.md#getCustomField) | **GET** /custom_field/{id} | Get Custom Field by id |
+| [**deleteCustomField()**](CustomFieldsApi.md#deleteCustomField) | **DELETE** /custom_field/{id} | Delete Custom Field |
+| [**getCustomField()**](CustomFieldsApi.md#getCustomField) | **GET** /custom_field/{id} | Get Custom Field |
 | [**getCustomFields()**](CustomFieldsApi.md#getCustomFields) | **GET** /custom_field | Get all Custom Fields |
-| [**updateCustomField()**](CustomFieldsApi.md#updateCustomField) | **PATCH** /custom_field/{id} | Update Custom Field by id |
+| [**updateCustomField()**](CustomFieldsApi.md#updateCustomField) | **PATCH** /custom_field/{id} | Update Custom Field |
 
 
 ## `createCustomField()`
@@ -79,7 +81,7 @@ try {
 deleteCustomField($id): \Qase\APIClientV1\Model\BaseResponse
 ```
 
-Delete Custom Field by id
+Delete Custom Field
 
 This method allows to delete custom field.
 
@@ -141,7 +143,7 @@ try {
 getCustomField($id): \Qase\APIClientV1\Model\CustomFieldResponse
 ```
 
-Get Custom Field by id
+Get Custom Field
 
 This method allows to retrieve custom field.
 
@@ -271,7 +273,7 @@ try {
 updateCustomField($id, $customFieldUpdate): \Qase\APIClientV1\Model\BaseResponse
 ```
 
-Update Custom Field by id
+Update Custom Field
 
 This method allows to update custom field.
 

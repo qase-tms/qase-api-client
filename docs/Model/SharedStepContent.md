@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **action** | **string** |  | [optional]
 **expectedResult** | **string** |  | [optional]
 **attachments** | [**\Qase\APIClientV1\Model\AttachmentHash[]**](AttachmentHash.md) |  | [optional]
+**steps** | **object[]** | Nested steps will be here. The same structure is used for them. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
