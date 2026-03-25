@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **milestoneId** | **int** |  | [optional]
 **automation** | **int** |  | [optional]
 **status** | **int** |  | [optional]
+**stepsType** | **string** | Determines the format of the steps field. When \&quot;classic\&quot;, steps use the standard action/expected_result/data format. When \&quot;gherkin\&quot;, steps use the {value: \&quot;Given...\\nWhen...\\nThen...\&quot;} format. | [optional] [default to 'classic']
 **attachments** | **string[]** | A list of Attachment hashes. | [optional]
 **steps** | [**\Qase\APIClientV1\Model\TestStepCreate[]**](TestStepCreate.md) |  | [optional]
 **tags** | **string[]** |  | [optional]

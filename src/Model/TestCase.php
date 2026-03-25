@@ -409,6 +409,21 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const STEPS_TYPE_CLASSIC = 'classic';
+    public const STEPS_TYPE_GHERKIN = 'gherkin';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStepsTypeAllowableValues()
+    {
+        return [
+            self::STEPS_TYPE_CLASSIC,
+            self::STEPS_TYPE_GHERKIN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -484,6 +499,15 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStepsTypeAllowableValues();
+        if (!is_null($this->container['stepsType']) && !in_array($this->container['stepsType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'stepsType', must be one of '%s'",
+                $this->container['stepsType'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -1049,6 +1073,16 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        $allowedValues = $this->getStepsTypeAllowableValues();
+        if (!is_null($stepsType) && !in_array($stepsType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'stepsType', must be one of '%s'",
+                    $stepsType,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['stepsType'] = $stepsType;
 

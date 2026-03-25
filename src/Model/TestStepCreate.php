@@ -61,6 +61,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => 'string',
         'expectedResult' => 'string',
         'data' => 'string',
+        'value' => 'string',
         'position' => 'int',
         'attachments' => 'string[]',
         'steps' => 'object[]'
@@ -77,6 +78,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => null,
         'expectedResult' => null,
         'data' => null,
+        'value' => null,
         'position' => null,
         'attachments' => null,
         'steps' => null
@@ -91,6 +93,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => false,
         'expectedResult' => false,
         'data' => false,
+        'value' => false,
         'position' => false,
         'attachments' => false,
         'steps' => false
@@ -185,6 +188,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => 'action',
         'expectedResult' => 'expected_result',
         'data' => 'data',
+        'value' => 'value',
         'position' => 'position',
         'attachments' => 'attachments',
         'steps' => 'steps'
@@ -199,6 +203,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => 'setAction',
         'expectedResult' => 'setExpectedResult',
         'data' => 'setData',
+        'value' => 'setValue',
         'position' => 'setPosition',
         'attachments' => 'setAttachments',
         'steps' => 'setSteps'
@@ -213,6 +218,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => 'getAction',
         'expectedResult' => 'getExpectedResult',
         'data' => 'getData',
+        'value' => 'getValue',
         'position' => 'getPosition',
         'attachments' => 'getAttachments',
         'steps' => 'getSteps'
@@ -278,6 +284,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('action', $data ?? [], null);
         $this->setIfExists('expectedResult', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
         $this->setIfExists('position', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('steps', $data ?? [], null);
@@ -338,7 +345,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action
      *
-     * @param string|null $action action
+     * @param string|null $action Step action text. Used for classic steps. For gherkin steps, use the \"value\" property instead.
      *
      * @return self
      */
@@ -402,6 +409,33 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string|null $value Gherkin scenario text. Used when steps_type is \"gherkin\". Example: \"Given a user exists\\nWhen they log in\\nThen they see the dashboard\"
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        if (is_null($value)) {
+            throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $this->container['value'] = $value;
 
         return $this;
     }
