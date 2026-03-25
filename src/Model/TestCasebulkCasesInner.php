@@ -72,6 +72,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'milestoneId' => 'int',
         'automation' => 'int',
         'status' => 'int',
+        'stepsType' => 'string',
         'attachments' => 'string[]',
         'steps' => '\Qase\APIClientV1\Model\TestStepCreate[]',
         'tags' => 'string[]',
@@ -105,6 +106,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'milestoneId' => 'int64',
         'automation' => null,
         'status' => null,
+        'stepsType' => null,
         'attachments' => null,
         'steps' => null,
         'tags' => null,
@@ -136,6 +138,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'milestoneId' => false,
         'automation' => false,
         'status' => false,
+        'stepsType' => false,
         'attachments' => false,
         'steps' => false,
         'tags' => false,
@@ -247,6 +250,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'milestoneId' => 'milestone_id',
         'automation' => 'automation',
         'status' => 'status',
+        'stepsType' => 'steps_type',
         'attachments' => 'attachments',
         'steps' => 'steps',
         'tags' => 'tags',
@@ -278,6 +282,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'milestoneId' => 'setMilestoneId',
         'automation' => 'setAutomation',
         'status' => 'setStatus',
+        'stepsType' => 'setStepsType',
         'attachments' => 'setAttachments',
         'steps' => 'setSteps',
         'tags' => 'setTags',
@@ -309,6 +314,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         'milestoneId' => 'getMilestoneId',
         'automation' => 'getAutomation',
         'status' => 'getStatus',
+        'stepsType' => 'getStepsType',
         'attachments' => 'getAttachments',
         'steps' => 'getSteps',
         'tags' => 'getTags',
@@ -361,6 +367,21 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const STEPS_TYPE_CLASSIC = 'classic';
+    public const STEPS_TYPE_GHERKIN = 'gherkin';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStepsTypeAllowableValues()
+    {
+        return [
+            self::STEPS_TYPE_CLASSIC,
+            self::STEPS_TYPE_GHERKIN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -391,6 +412,7 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('milestoneId', $data ?? [], null);
         $this->setIfExists('automation', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('stepsType', $data ?? [], 'classic');
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('steps', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
@@ -434,6 +456,15 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ((mb_strlen($this->container['title']) > 255)) {
             $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 255.";
+        }
+
+        $allowedValues = $this->getStepsTypeAllowableValues();
+        if (!is_null($this->container['stepsType']) && !in_array($this->container['stepsType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'stepsType', must be one of '%s'",
+                $this->container['stepsType'],
+                implode("', '", $allowedValues)
+            );
         }
 
         return $invalidProperties;
@@ -829,6 +860,43 @@ class TestCasebulkCasesInner implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets stepsType
+     *
+     * @return string|null
+     */
+    public function getStepsType()
+    {
+        return $this->container['stepsType'];
+    }
+
+    /**
+     * Sets stepsType
+     *
+     * @param string|null $stepsType Determines the format of the steps field. When \"classic\", steps use the standard action/expected_result/data format. When \"gherkin\", steps use the {value: \"Given...\\nWhen...\\nThen...\"} format.
+     *
+     * @return self
+     */
+    public function setStepsType($stepsType)
+    {
+        if (is_null($stepsType)) {
+            throw new \InvalidArgumentException('non-nullable stepsType cannot be null');
+        }
+        $allowedValues = $this->getStepsTypeAllowableValues();
+        if (!in_array($stepsType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'stepsType', must be one of '%s'",
+                    $stepsType,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['stepsType'] = $stepsType;
 
         return $this;
     }
