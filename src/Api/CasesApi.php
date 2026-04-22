@@ -2352,8 +2352,8 @@ class CasesApi
             $externalIssuesIds,
             'external_issues[ids][]', // param base name
             'array', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
