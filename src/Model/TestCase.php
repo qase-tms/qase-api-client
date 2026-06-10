@@ -71,6 +71,8 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'isFlaky' => 'int',
         'behavior' => 'int',
         'automation' => 'int',
+        'isManual' => 'int',
+        'isToBeAutomated' => 'int',
         'status' => 'int',
         'milestoneId' => 'int',
         'suiteId' => 'int',
@@ -112,6 +114,8 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'isFlaky' => null,
         'behavior' => null,
         'automation' => null,
+        'isManual' => null,
+        'isToBeAutomated' => null,
         'status' => null,
         'milestoneId' => 'int64',
         'suiteId' => 'int64',
@@ -151,6 +155,8 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'isFlaky' => false,
         'behavior' => false,
         'automation' => false,
+        'isManual' => false,
+        'isToBeAutomated' => false,
         'status' => false,
         'milestoneId' => true,
         'suiteId' => true,
@@ -270,6 +276,8 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'isFlaky' => 'is_flaky',
         'behavior' => 'behavior',
         'automation' => 'automation',
+        'isManual' => 'isManual',
+        'isToBeAutomated' => 'isToBeAutomated',
         'status' => 'status',
         'milestoneId' => 'milestone_id',
         'suiteId' => 'suite_id',
@@ -309,6 +317,8 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'isFlaky' => 'setIsFlaky',
         'behavior' => 'setBehavior',
         'automation' => 'setAutomation',
+        'isManual' => 'setIsManual',
+        'isToBeAutomated' => 'setIsToBeAutomated',
         'status' => 'setStatus',
         'milestoneId' => 'setMilestoneId',
         'suiteId' => 'setSuiteId',
@@ -348,6 +358,8 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         'isFlaky' => 'getIsFlaky',
         'behavior' => 'getBehavior',
         'automation' => 'getAutomation',
+        'isManual' => 'getIsManual',
+        'isToBeAutomated' => 'getIsToBeAutomated',
         'status' => 'getStatus',
         'milestoneId' => 'getMilestoneId',
         'suiteId' => 'getSuiteId',
@@ -453,6 +465,8 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('isFlaky', $data ?? [], null);
         $this->setIfExists('behavior', $data ?? [], null);
         $this->setIfExists('automation', $data ?? [], null);
+        $this->setIfExists('isManual', $data ?? [], null);
+        $this->setIfExists('isToBeAutomated', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('milestoneId', $data ?? [], null);
         $this->setIfExists('suiteId', $data ?? [], null);
@@ -873,6 +887,7 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets automation
      *
      * @return int|null
+     * @deprecated
      */
     public function getAutomation()
     {
@@ -882,9 +897,10 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets automation
      *
-     * @param int|null $automation automation
+     * @param int|null $automation Deprecated, use `isManual` and `isToBeAutomated` instead. Encodes the test case automation state as a single integer: `0` = manual, `1` = manual planned to be automated, `2` = automated.
      *
      * @return self
+     * @deprecated
      */
     public function setAutomation($automation)
     {
@@ -892,6 +908,60 @@ class TestCase implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable automation cannot be null');
         }
         $this->container['automation'] = $automation;
+
+        return $this;
+    }
+
+    /**
+     * Gets isManual
+     *
+     * @return int|null
+     */
+    public function getIsManual()
+    {
+        return $this->container['isManual'];
+    }
+
+    /**
+     * Sets isManual
+     *
+     * @param int|null $isManual `1` if the case is manual, `0` if it is automated. Combined with `isToBeAutomated`, replaces the deprecated `automation` field.
+     *
+     * @return self
+     */
+    public function setIsManual($isManual)
+    {
+        if (is_null($isManual)) {
+            throw new \InvalidArgumentException('non-nullable isManual cannot be null');
+        }
+        $this->container['isManual'] = $isManual;
+
+        return $this;
+    }
+
+    /**
+     * Gets isToBeAutomated
+     *
+     * @return int|null
+     */
+    public function getIsToBeAutomated()
+    {
+        return $this->container['isToBeAutomated'];
+    }
+
+    /**
+     * Sets isToBeAutomated
+     *
+     * @param int|null $isToBeAutomated `1` if a manual case is planned to be automated, `0` otherwise. Only meaningful when `isManual = 1`; ignored when `isManual = 0`.
+     *
+     * @return self
+     */
+    public function setIsToBeAutomated($isToBeAutomated)
+    {
+        if (is_null($isToBeAutomated)) {
+            throw new \InvalidArgumentException('non-nullable isToBeAutomated cannot be null');
+        }
+        $this->container['isToBeAutomated'] = $isToBeAutomated;
 
         return $this;
     }
