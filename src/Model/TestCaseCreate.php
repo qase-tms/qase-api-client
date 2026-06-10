@@ -71,6 +71,8 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'suiteId' => 'int',
         'milestoneId' => 'int',
         'automation' => 'int',
+        'isManual' => 'int',
+        'isToBeAutomated' => 'int',
         'status' => 'int',
         'stepsType' => 'string',
         'attachments' => 'string[]',
@@ -104,6 +106,8 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'suiteId' => 'int64',
         'milestoneId' => 'int64',
         'automation' => null,
+        'isManual' => null,
+        'isToBeAutomated' => null,
         'status' => null,
         'stepsType' => null,
         'attachments' => null,
@@ -135,6 +139,8 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'suiteId' => false,
         'milestoneId' => false,
         'automation' => false,
+        'isManual' => false,
+        'isToBeAutomated' => false,
         'status' => false,
         'stepsType' => false,
         'attachments' => false,
@@ -246,6 +252,8 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'suiteId' => 'suite_id',
         'milestoneId' => 'milestone_id',
         'automation' => 'automation',
+        'isManual' => 'isManual',
+        'isToBeAutomated' => 'isToBeAutomated',
         'status' => 'status',
         'stepsType' => 'steps_type',
         'attachments' => 'attachments',
@@ -277,6 +285,8 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'suiteId' => 'setSuiteId',
         'milestoneId' => 'setMilestoneId',
         'automation' => 'setAutomation',
+        'isManual' => 'setIsManual',
+        'isToBeAutomated' => 'setIsToBeAutomated',
         'status' => 'setStatus',
         'stepsType' => 'setStepsType',
         'attachments' => 'setAttachments',
@@ -308,6 +318,8 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         'suiteId' => 'getSuiteId',
         'milestoneId' => 'getMilestoneId',
         'automation' => 'getAutomation',
+        'isManual' => 'getIsManual',
+        'isToBeAutomated' => 'getIsToBeAutomated',
         'status' => 'getStatus',
         'stepsType' => 'getStepsType',
         'attachments' => 'getAttachments',
@@ -405,6 +417,8 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('suiteId', $data ?? [], null);
         $this->setIfExists('milestoneId', $data ?? [], null);
         $this->setIfExists('automation', $data ?? [], null);
+        $this->setIfExists('isManual', $data ?? [], null);
+        $this->setIfExists('isToBeAutomated', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('stepsType', $data ?? [], 'classic');
         $this->setIfExists('attachments', $data ?? [], null);
@@ -807,6 +821,7 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets automation
      *
      * @return int|null
+     * @deprecated
      */
     public function getAutomation()
     {
@@ -816,9 +831,10 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets automation
      *
-     * @param int|null $automation automation
+     * @param int|null $automation Deprecated, use `isManual` and `isToBeAutomated` instead. Encodes the test case automation state as a single integer: `0` = manual, `1` = manual planned to be automated, `2` = automated. If both `automation` and `isManual`/`isToBeAutomated` are provided, `isManual` and `isToBeAutomated` take precedence.
      *
      * @return self
+     * @deprecated
      */
     public function setAutomation($automation)
     {
@@ -826,6 +842,60 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable automation cannot be null');
         }
         $this->container['automation'] = $automation;
+
+        return $this;
+    }
+
+    /**
+     * Gets isManual
+     *
+     * @return int|null
+     */
+    public function getIsManual()
+    {
+        return $this->container['isManual'];
+    }
+
+    /**
+     * Sets isManual
+     *
+     * @param int|null $isManual `1` if the case is manual, `0` if it is automated. Combined with `isToBeAutomated`, replaces the deprecated `automation` field.
+     *
+     * @return self
+     */
+    public function setIsManual($isManual)
+    {
+        if (is_null($isManual)) {
+            throw new \InvalidArgumentException('non-nullable isManual cannot be null');
+        }
+        $this->container['isManual'] = $isManual;
+
+        return $this;
+    }
+
+    /**
+     * Gets isToBeAutomated
+     *
+     * @return int|null
+     */
+    public function getIsToBeAutomated()
+    {
+        return $this->container['isToBeAutomated'];
+    }
+
+    /**
+     * Sets isToBeAutomated
+     *
+     * @param int|null $isToBeAutomated `1` if a manual case is planned to be automated, `0` otherwise. Only meaningful when `isManual = 1`; ignored when `isManual = 0`.
+     *
+     * @return self
+     */
+    public function setIsToBeAutomated($isToBeAutomated)
+    {
+        if (is_null($isToBeAutomated)) {
+            throw new \InvalidArgumentException('non-nullable isToBeAutomated cannot be null');
+        }
+        $this->container['isToBeAutomated'] = $isToBeAutomated;
 
         return $this;
     }
@@ -1058,7 +1128,7 @@ class TestCaseCreate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets customField
      *
-     * @param array<string,string>|null $customField A map of custom fields values (id => value)
+     * @param array<string,string>|null $customField Custom field values keyed by the field's project-scoped `internal_id` (see `GET /custom_field`). Values are always **scalar strings**; arrays, objects or non-scalars are rejected.  | Field type           | Value format                              | Example                 | |----------------------|-------------------------------------------|-------------------------| | `string`, `text`     | Plain string                              | `\"hello\"`               | | `number`             | Numeric string                            | `\"42\"`                  | | `url`                | Valid URL                                 | `\"https://qase.io\"`     | | `datetime`           | Absolute date (ISO 8601 recommended)      | `\"2026-04-29T15:00:00Z\"`| | `selectbox`, `radio` | Option `id` as string                     | `\"1\"`                   | | `multiselect`        | Comma-separated option `id`s (no spaces)  | `\"1,2,3\"`               | | `checkbox`           | `\"1\"` to check, `\"\"` to uncheck           | `\"1\"`                   | | `user`               | Team member `internal_id` as string       | `\"42\"`                  |  Validation: all required fields without a default value must be present and non-empty; unknown `internal_id`s are rejected; option-based values must reference an existing option.  Note: a `required` checkbox without a default cannot be unchecked via the API — set a default or clear `required` in workspace settings.
      *
      * @return self
      */
