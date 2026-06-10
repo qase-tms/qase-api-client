@@ -1,0 +1,53 @@
+docs/Model/TestCase.md
+  s_db4449b556d9c4::t_8d66923861ac5b 19-21
+composer.json
+  s_db4449b556d9c4::t_79d7cdb2ba2189 41
+docs/Model/TestCaseCreate.md
+  s_db4449b556d9c4::t_8d66923861ac5b 19-21,29
+src/Model/TestCaseCreate.php
+  s_db4449b556d9c4::t_8d66923861ac5b 74-75,109-110,142-143,255-256,288-289,321-322,420-421,824,834,837,849-902,1131
+docs/Model/TestCaseUpdate.md
+  s_db4449b556d9c4::t_8d66923861ac5b 19-21,29
+docs/Model/RunCreate.md
+  s_db4449b556d9c4::t_8d66923861ac5b 19
+docs/Model/DefectCreate.md
+  s_db4449b556d9c4::t_8d66923861ac5b 12
+docs/Model/TestCasebulkCasesInner.md
+  s_db4449b556d9c4::t_8d66923861ac5b 19-21,29
+src/Model/RunCreate.php
+  s_db4449b556d9c4::t_8d66923861ac5b 805
+src/Model/DefectUpdate.php
+  s_db4449b556d9c4::t_8d66923861ac5b 490
+src/Model/TestCase.php
+  s_db4449b556d9c4::t_8d66923861ac5b 74-75,117-118,158-159,279-280,320-321,361-362,468-469,890,900,903,915-964
+src/Model/TestCasebulkCasesInner.php
+  s_db4449b556d9c4::t_8d66923861ac5b 74-75,110-111,144-145,258-259,292-293,326-327,426-427,831,841,844,856-909,1138
+src/Model/Runupdate.php
+  s_db4449b556d9c4::t_8d66923861ac5b 628
+docs/Model/DefectUpdate.md
+  s_db4449b556d9c4::t_8d66923861ac5b 12
+src/Model/DefectCreate.php
+  s_db4449b556d9c4::t_8d66923861ac5b 499
+composer.lock
+  s_db4449b556d9c4::t_0bf2d4f7ef914c 7
+docs/Model/Runupdate.md
+  s_db4449b556d9c4::t_8d66923861ac5b 14
+src/Model/TestCaseUpdate.php
+  s_db4449b556d9c4::t_8d66923861ac5b 74-75,107-108,138-139,249-250,280-281,311-312,408-409,807,817,820,832-885,1114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "57506a10106fe6f33803c6a411b4569b17b5c9a1",
+  "prompts": {},
+  "sessions": {
+    "s_db4449b556d9c4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a06810e2-9716-4157-80e5-a0d6f84ece52",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}
