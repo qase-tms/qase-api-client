@@ -60,8 +60,12 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'status' => 'int',
         'position' => 'int',
+        'comment' => 'string',
+        'startTime' => 'int',
+        'endTime' => 'int',
+        'durationMs' => 'int',
         'attachments' => '\Qase\APIClientV1\Model\Attachment[]',
-        'steps' => 'object[]'
+        'steps' => '\Qase\APIClientV1\Model\TestStepResult[]'
     ];
 
     /**
@@ -74,6 +78,10 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'status' => null,
         'position' => null,
+        'comment' => null,
+        'startTime' => 'int64',
+        'endTime' => 'int64',
+        'durationMs' => 'int64',
         'attachments' => null,
         'steps' => null
     ];
@@ -86,6 +94,10 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'status' => false,
         'position' => false,
+        'comment' => false,
+        'startTime' => true,
+        'endTime' => true,
+        'durationMs' => true,
         'attachments' => false,
         'steps' => false
     ];
@@ -178,6 +190,10 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'status' => 'status',
         'position' => 'position',
+        'comment' => 'comment',
+        'startTime' => 'start_time',
+        'endTime' => 'end_time',
+        'durationMs' => 'duration_ms',
         'attachments' => 'attachments',
         'steps' => 'steps'
     ];
@@ -190,6 +206,10 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'status' => 'setStatus',
         'position' => 'setPosition',
+        'comment' => 'setComment',
+        'startTime' => 'setStartTime',
+        'endTime' => 'setEndTime',
+        'durationMs' => 'setDurationMs',
         'attachments' => 'setAttachments',
         'steps' => 'setSteps'
     ];
@@ -202,6 +222,10 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'status' => 'getStatus',
         'position' => 'getPosition',
+        'comment' => 'getComment',
+        'startTime' => 'getStartTime',
+        'endTime' => 'getEndTime',
+        'durationMs' => 'getDurationMs',
         'attachments' => 'getAttachments',
         'steps' => 'getSteps'
     ];
@@ -265,6 +289,10 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('position', $data ?? [], null);
+        $this->setIfExists('comment', $data ?? [], null);
+        $this->setIfExists('startTime', $data ?? [], null);
+        $this->setIfExists('endTime', $data ?? [], null);
+        $this->setIfExists('durationMs', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('steps', $data ?? [], null);
     }
@@ -368,6 +396,135 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets comment
+     *
+     * @return string|null
+     */
+    public function getComment()
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string|null $comment Comment left for the step.
+     *
+     * @return self
+     */
+    public function setComment($comment)
+    {
+        if (is_null($comment)) {
+            throw new \InvalidArgumentException('non-nullable comment cannot be null');
+        }
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets startTime
+     *
+     * @return int|null
+     */
+    public function getStartTime()
+    {
+        return $this->container['startTime'];
+    }
+
+    /**
+     * Sets startTime
+     *
+     * @param int|null $startTime Unix timestamp of the step start time.
+     *
+     * @return self
+     */
+    public function setStartTime($startTime)
+    {
+        if (is_null($startTime)) {
+            array_push($this->openAPINullablesSetToNull, 'startTime');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('startTime', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['startTime'] = $startTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets endTime
+     *
+     * @return int|null
+     */
+    public function getEndTime()
+    {
+        return $this->container['endTime'];
+    }
+
+    /**
+     * Sets endTime
+     *
+     * @param int|null $endTime Unix timestamp of the step end time.
+     *
+     * @return self
+     */
+    public function setEndTime($endTime)
+    {
+        if (is_null($endTime)) {
+            array_push($this->openAPINullablesSetToNull, 'endTime');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('endTime', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['endTime'] = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets durationMs
+     *
+     * @return int|null
+     */
+    public function getDurationMs()
+    {
+        return $this->container['durationMs'];
+    }
+
+    /**
+     * Sets durationMs
+     *
+     * @param int|null $durationMs Step duration in milliseconds.
+     *
+     * @return self
+     */
+    public function setDurationMs($durationMs)
+    {
+        if (is_null($durationMs)) {
+            array_push($this->openAPINullablesSetToNull, 'durationMs');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('durationMs', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['durationMs'] = $durationMs;
+
+        return $this;
+    }
+
+    /**
      * Gets attachments
      *
      * @return \Qase\APIClientV1\Model\Attachment[]|null
@@ -397,7 +554,7 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets steps
      *
-     * @return object[]|null
+     * @return \Qase\APIClientV1\Model\TestStepResult[]|null
      */
     public function getSteps()
     {
@@ -407,7 +564,7 @@ class TestStepResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets steps
      *
-     * @param object[]|null $steps Nested steps results will be here. The same structure is used for them for them.
+     * @param \Qase\APIClientV1\Model\TestStepResult[]|null $steps Nested steps results will be here. The same structure is used for them.
      *
      * @return self
      */
