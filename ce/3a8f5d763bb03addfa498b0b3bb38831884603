@@ -1,0 +1,25 @@
+composer.json
+  s_85ddc622051aaf::t_2614613c5b83f4 41
+composer.lock
+  s_85ddc622051aaf::t_c9b574c1db0e6c 7
+docs/Model/TestStepResult.md
+  s_85ddc622051aaf::t_512c625a946cd2 9-12,14
+src/Model/TestStepResult.php
+  s_85ddc622051aaf::t_2bf47a4a758a14 63-66,68,81-84,97-100,193-196,209-212,225-228,292-295,398-526,557,567
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "ce3a8f5d763bb03addfa498b0b3bb38831884603",
+  "prompts": {},
+  "sessions": {
+    "s_85ddc622051aaf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "91eedfab-7e7a-4a7a-86cd-851199e64a9f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}
