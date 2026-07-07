@@ -71,8 +71,8 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
         'suiteId' => 'int',
         'milestoneId' => 'int',
         'automation' => 'int',
-        'isManual' => 'int',
-        'isToBeAutomated' => 'int',
+        'isManual' => 'bool',
+        'isToBeAutomated' => 'bool',
         'status' => 'int',
         'stepsType' => 'string',
         'attachments' => 'string[]',
@@ -832,7 +832,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets isManual
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getIsManual()
     {
@@ -842,7 +842,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets isManual
      *
-     * @param int|null $isManual `1` if the case is manual, `0` if it is automated. Combined with `isToBeAutomated`, replaces the deprecated `automation` field.
+     * @param bool|null $isManual `true` if the case is manual, `false` if it is automated. Combined with `isToBeAutomated`, replaces the deprecated `automation` field.
      *
      * @return self
      */
@@ -859,7 +859,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets isToBeAutomated
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getIsToBeAutomated()
     {
@@ -869,7 +869,7 @@ class TestCaseUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets isToBeAutomated
      *
-     * @param int|null $isToBeAutomated `1` if a manual case is planned to be automated, `0` otherwise. Only meaningful when `isManual = 1`; ignored when `isManual = 0`.
+     * @param bool|null $isToBeAutomated `true` if a manual case is planned to be automated, `false` otherwise. Only meaningful when `isManual` is `true`; ignored when `isManual` is `false`.
      *
      * @return self
      */
