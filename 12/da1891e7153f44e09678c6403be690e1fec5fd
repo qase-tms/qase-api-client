@@ -1,0 +1,37 @@
+composer.json
+  s_9949356bb8136a::t_40c622046b4a3b 41
+composer.lock
+  s_9949356bb8136a::t_d7b2e7f326da0c 7
+docs/Model/TestCase.md
+  s_9949356bb8136a::t_b8a30412f061ae 20-21
+docs/Model/TestCaseCreate.md
+  s_9949356bb8136a::t_d26d7adbbb5526 20-21
+docs/Model/TestCaseUpdate.md
+  s_9949356bb8136a::t_55fa92242db469 20-21
+docs/Model/TestCasebulkCasesInner.md
+  s_9949356bb8136a::t_08f3909398baa0 20-21
+src/Model/TestCase.php
+  s_9949356bb8136a::t_2e3c9eb683eb1e 74-75,918,928,945,955
+src/Model/TestCaseCreate.php
+  s_9949356bb8136a::t_881e1463884d7e 74-75,852,862,879,889
+src/Model/TestCaseUpdate.php
+  s_9949356bb8136a::t_4d7293159a8fb5 74-75,835,845,862,872
+src/Model/TestCasebulkCasesInner.php
+  s_9949356bb8136a::t_3eae6757877e88 74-75,859,869,886,896
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "12da1891e7153f44e09678c6403be690e1fec5fd",
+  "prompts": {},
+  "sessions": {
+    "s_9949356bb8136a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9373579e-1e0e-4b20-a586-4931f56494e8",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}
