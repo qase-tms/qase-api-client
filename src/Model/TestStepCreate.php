@@ -59,6 +59,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'action' => 'string',
+        'shared' => 'string',
         'expectedResult' => 'string',
         'data' => 'string',
         'value' => 'string',
@@ -76,6 +77,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'action' => null,
+        'shared' => null,
         'expectedResult' => null,
         'data' => null,
         'value' => null,
@@ -91,6 +93,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'action' => false,
+        'shared' => false,
         'expectedResult' => false,
         'data' => false,
         'value' => false,
@@ -186,6 +189,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'action' => 'action',
+        'shared' => 'shared',
         'expectedResult' => 'expected_result',
         'data' => 'data',
         'value' => 'value',
@@ -201,6 +205,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'action' => 'setAction',
+        'shared' => 'setShared',
         'expectedResult' => 'setExpectedResult',
         'data' => 'setData',
         'value' => 'setValue',
@@ -216,6 +221,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'action' => 'getAction',
+        'shared' => 'getShared',
         'expectedResult' => 'getExpectedResult',
         'data' => 'getData',
         'value' => 'getValue',
@@ -282,6 +288,7 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('action', $data ?? [], null);
+        $this->setIfExists('shared', $data ?? [], null);
         $this->setIfExists('expectedResult', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
@@ -355,6 +362,33 @@ class TestStepCreate implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable action cannot be null');
         }
         $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets shared
+     *
+     * @return string|null
+     */
+    public function getShared()
+    {
+        return $this->container['shared'];
+    }
+
+    /**
+     * Sets shared
+     *
+     * @param string|null $shared Hash of an existing shared step to insert at this position.
+     *
+     * @return self
+     */
+    public function setShared($shared)
+    {
+        if (is_null($shared)) {
+            throw new \InvalidArgumentException('non-nullable shared cannot be null');
+        }
+        $this->container['shared'] = $shared;
 
         return $this;
     }
