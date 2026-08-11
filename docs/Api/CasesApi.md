@@ -433,10 +433,10 @@ $milestoneId = 56; // int | ID of milestone.
 $suiteId = 56; // int | ID of test suite.
 $severity = 'severity_example'; // string | A list of severity values separated by comma. Possible values: undefined, blocker, critical, major, normal, minor, trivial
 $priority = 'priority_example'; // string | A list of priority values separated by comma. Possible values: undefined, high, medium, low
-$type = 'type_example'; // string | A list of type values separated by comma. Possible values: other, functional smoke, regression, security, usability, performance, acceptance
-$behavior = 'behavior_example'; // string | A list of behavior values separated by comma. Possible values: undefined, positive negative, destructive
-$automation = 'automation_example'; // string | A list of values separated by comma. Possible values: is-not-automated, automated to-be-automated
-$status = 'status_example'; // string | A list of values separated by comma. Possible values: actual, draft deprecated
+$type = 'type_example'; // string | A list of type values separated by comma. Possible values: other, functional, smoke, regression, security, usability, performance, acceptance
+$behavior = 'behavior_example'; // string | A list of behavior values separated by comma. Possible values: undefined, positive, negative, destructive
+$automation = 'automation_example'; // string | A list of values separated by comma. Possible values: is-not-automated, automated, to-be-automated
+$status = 'status_example'; // string | A list of values separated by comma. Possible values: actual, draft, deprecated
 $externalIssuesType = 'externalIssuesType_example'; // string | An integration type.
 $externalIssuesIds = array('externalIssuesIds_example'); // string[] | A list of issue IDs.
 $include = 'include_example'; // string | A list of entities to include in response separated by comma. Possible values: external_issues.
@@ -461,10 +461,10 @@ try {
 | **suiteId** | **int**| ID of test suite. | [optional] |
 | **severity** | **string**| A list of severity values separated by comma. Possible values: undefined, blocker, critical, major, normal, minor, trivial | [optional] |
 | **priority** | **string**| A list of priority values separated by comma. Possible values: undefined, high, medium, low | [optional] |
-| **type** | **string**| A list of type values separated by comma. Possible values: other, functional smoke, regression, security, usability, performance, acceptance | [optional] |
-| **behavior** | **string**| A list of behavior values separated by comma. Possible values: undefined, positive negative, destructive | [optional] |
-| **automation** | **string**| A list of values separated by comma. Possible values: is-not-automated, automated to-be-automated | [optional] |
-| **status** | **string**| A list of values separated by comma. Possible values: actual, draft deprecated | [optional] |
+| **type** | **string**| A list of type values separated by comma. Possible values: other, functional, smoke, regression, security, usability, performance, acceptance | [optional] |
+| **behavior** | **string**| A list of behavior values separated by comma. Possible values: undefined, positive, negative, destructive | [optional] |
+| **automation** | **string**| A list of values separated by comma. Possible values: is-not-automated, automated, to-be-automated | [optional] |
+| **status** | **string**| A list of values separated by comma. Possible values: actual, draft, deprecated | [optional] |
 | **externalIssuesType** | **string**| An integration type. | [optional] |
 | **externalIssuesIds** | [**string[]**](../Model/string.md)| A list of issue IDs. | [optional] |
 | **include** | **string**| A list of entities to include in response separated by comma. Possible values: external_issues. | [optional] |
