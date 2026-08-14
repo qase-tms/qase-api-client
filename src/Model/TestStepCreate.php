@@ -36,6 +36,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * TestStepCreate Class Doc Comment
  *
  * @category Class
+ * @description When &#x60;steps_type&#x60; is &#x60;gherkin&#x60; only the scenario text is read from a step. A non-empty &#x60;expected_result&#x60;, &#x60;data&#x60;, &#x60;attachments&#x60;, &#x60;shared&#x60; or nested &#x60;steps&#x60; is rejected, and so is sending the scenario in &#x60;value&#x60; and &#x60;action&#x60; at once.
  * @package  Qase\APIClientV1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

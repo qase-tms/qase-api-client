@@ -1,6 +1,6 @@
 <?php
 /**
- * Author
+ * ReviewProposedStep
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * Author Class Doc Comment
+ * ReviewProposedStep Class Doc Comment
  *
  * @category Class
  * @package  Qase\APIClientV1
@@ -41,7 +41,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Author implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReviewProposedStep implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Author';
+    protected static $openAPIModelName = 'ReviewProposedStep';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,13 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'uuid' => 'string',
-        'authorId' => 'int',
-        'entityType' => 'string',
-        'entityId' => 'int',
-        'email' => 'string',
-        'name' => 'string',
-        'isActive' => 'bool'
+        'action' => 'string',
+        'expectedResult' => 'string',
+        'data' => 'string',
+        'value' => 'string',
+        'shared' => 'string',
+        'attachments' => 'string[]',
+        'steps' => 'object[]'
     ];
 
     /**
@@ -76,14 +75,13 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'uuid' => 'uuid',
-        'authorId' => 'int64',
-        'entityType' => null,
-        'entityId' => 'int64',
-        'email' => null,
-        'name' => null,
-        'isActive' => null
+        'action' => null,
+        'expectedResult' => null,
+        'data' => null,
+        'value' => null,
+        'shared' => null,
+        'attachments' => null,
+        'steps' => null
     ];
 
     /**
@@ -92,14 +90,13 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'uuid' => false,
-        'authorId' => false,
-        'entityType' => false,
-        'entityId' => false,
-        'email' => false,
-        'name' => false,
-        'isActive' => false
+        'action' => false,
+        'expectedResult' => false,
+        'data' => false,
+        'value' => false,
+        'shared' => false,
+        'attachments' => false,
+        'steps' => false
     ];
 
     /**
@@ -188,14 +185,13 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'uuid' => 'uuid',
-        'authorId' => 'author_id',
-        'entityType' => 'entity_type',
-        'entityId' => 'entity_id',
-        'email' => 'email',
-        'name' => 'name',
-        'isActive' => 'is_active'
+        'action' => 'action',
+        'expectedResult' => 'expected_result',
+        'data' => 'data',
+        'value' => 'value',
+        'shared' => 'shared',
+        'attachments' => 'attachments',
+        'steps' => 'steps'
     ];
 
     /**
@@ -204,14 +200,13 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'uuid' => 'setUuid',
-        'authorId' => 'setAuthorId',
-        'entityType' => 'setEntityType',
-        'entityId' => 'setEntityId',
-        'email' => 'setEmail',
-        'name' => 'setName',
-        'isActive' => 'setIsActive'
+        'action' => 'setAction',
+        'expectedResult' => 'setExpectedResult',
+        'data' => 'setData',
+        'value' => 'setValue',
+        'shared' => 'setShared',
+        'attachments' => 'setAttachments',
+        'steps' => 'setSteps'
     ];
 
     /**
@@ -220,14 +215,13 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'uuid' => 'getUuid',
-        'authorId' => 'getAuthorId',
-        'entityType' => 'getEntityType',
-        'entityId' => 'getEntityId',
-        'email' => 'getEmail',
-        'name' => 'getName',
-        'isActive' => 'getIsActive'
+        'action' => 'getAction',
+        'expectedResult' => 'getExpectedResult',
+        'data' => 'getData',
+        'value' => 'getValue',
+        'shared' => 'getShared',
+        'attachments' => 'getAttachments',
+        'steps' => 'getSteps'
     ];
 
     /**
@@ -287,14 +281,13 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('uuid', $data ?? [], null);
-        $this->setIfExists('authorId', $data ?? [], null);
-        $this->setIfExists('entityType', $data ?? [], null);
-        $this->setIfExists('entityId', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('isActive', $data ?? [], null);
+        $this->setIfExists('action', $data ?? [], null);
+        $this->setIfExists('expectedResult', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('shared', $data ?? [], null);
+        $this->setIfExists('attachments', $data ?? [], null);
+        $this->setIfExists('steps', $data ?? [], null);
     }
 
     /**
@@ -340,219 +333,190 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
+     * Gets action
      *
      * @return string|null
      */
-    public function getUuid()
+    public function getAction()
     {
-        return $this->container['uuid'];
+        return $this->container['action'];
     }
 
     /**
-     * Sets uuid
+     * Sets action
      *
-     * @param string|null $uuid Author UUID. Use it to reference the author in other API methods.
+     * @param string|null $action Step action text. Used for classic steps. For gherkin steps, use the \"value\" property instead.
      *
      * @return self
      */
-    public function setUuid($uuid)
+    public function setAction($action)
     {
-        if (is_null($uuid)) {
-            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
+        if (is_null($action)) {
+            throw new \InvalidArgumentException('non-nullable action cannot be null');
         }
-        $this->container['uuid'] = $uuid;
+        $this->container['action'] = $action;
 
         return $this;
     }
 
     /**
-     * Gets authorId
-     *
-     * @return int|null
-     * @deprecated
-     */
-    public function getAuthorId()
-    {
-        return $this->container['authorId'];
-    }
-
-    /**
-     * Sets authorId
-     *
-     * @param int|null $authorId Deprecated, use `uuid` instead.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setAuthorId($authorId)
-    {
-        if (is_null($authorId)) {
-            throw new \InvalidArgumentException('non-nullable authorId cannot be null');
-        }
-        $this->container['authorId'] = $authorId;
-
-        return $this;
-    }
-
-    /**
-     * Gets entityType
+     * Gets expectedResult
      *
      * @return string|null
      */
-    public function getEntityType()
+    public function getExpectedResult()
     {
-        return $this->container['entityType'];
+        return $this->container['expectedResult'];
     }
 
     /**
-     * Sets entityType
+     * Sets expectedResult
      *
-     * @param string|null $entityType entityType
+     * @param string|null $expectedResult expectedResult
      *
      * @return self
      */
-    public function setEntityType($entityType)
+    public function setExpectedResult($expectedResult)
     {
-        if (is_null($entityType)) {
-            throw new \InvalidArgumentException('non-nullable entityType cannot be null');
+        if (is_null($expectedResult)) {
+            throw new \InvalidArgumentException('non-nullable expectedResult cannot be null');
         }
-        $this->container['entityType'] = $entityType;
+        $this->container['expectedResult'] = $expectedResult;
 
         return $this;
     }
 
     /**
-     * Gets entityId
-     *
-     * @return int|null
-     */
-    public function getEntityId()
-    {
-        return $this->container['entityId'];
-    }
-
-    /**
-     * Sets entityId
-     *
-     * @param int|null $entityId entityId
-     *
-     * @return self
-     */
-    public function setEntityId($entityId)
-    {
-        if (is_null($entityId)) {
-            throw new \InvalidArgumentException('non-nullable entityId cannot be null');
-        }
-        $this->container['entityId'] = $entityId;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
+     * Gets data
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getData()
     {
-        return $this->container['email'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets email
+     * Sets data
      *
-     * @param string|null $email email
+     * @param string|null $data data
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setData($data)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
-        $this->container['email'] = $email;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets value
      *
      * @return string|null
      */
-    public function getName()
+    public function getValue()
     {
-        return $this->container['name'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets name
+     * Sets value
      *
-     * @param string|null $name name
+     * @param string|null $value Gherkin scenario text. Used when steps_type is \"gherkin\".
      *
      * @return self
      */
-    public function setName($name)
+    public function setValue($value)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($value)) {
+            throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets isActive
+     * Gets shared
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsActive()
+    public function getShared()
     {
-        return $this->container['isActive'];
+        return $this->container['shared'];
     }
 
     /**
-     * Sets isActive
+     * Sets shared
      *
-     * @param bool|null $isActive isActive
+     * @param string|null $shared Hash of the referenced shared step.
      *
      * @return self
      */
-    public function setIsActive($isActive)
+    public function setShared($shared)
     {
-        if (is_null($isActive)) {
-            throw new \InvalidArgumentException('non-nullable isActive cannot be null');
+        if (is_null($shared)) {
+            throw new \InvalidArgumentException('non-nullable shared cannot be null');
         }
-        $this->container['isActive'] = $isActive;
+        $this->container['shared'] = $shared;
+
+        return $this;
+    }
+
+    /**
+     * Gets attachments
+     *
+     * @return string[]|null
+     */
+    public function getAttachments()
+    {
+        return $this->container['attachments'];
+    }
+
+    /**
+     * Sets attachments
+     *
+     * @param string[]|null $attachments A list of Attachment hashes.
+     *
+     * @return self
+     */
+    public function setAttachments($attachments)
+    {
+        if (is_null($attachments)) {
+            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
+        }
+        $this->container['attachments'] = $attachments;
+
+        return $this;
+    }
+
+    /**
+     * Gets steps
+     *
+     * @return object[]|null
+     */
+    public function getSteps()
+    {
+        return $this->container['steps'];
+    }
+
+    /**
+     * Sets steps
+     *
+     * @param object[]|null $steps Nested steps use the same structure.
+     *
+     * @return self
+     */
+    public function setSteps($steps)
+    {
+        if (is_null($steps)) {
+            throw new \InvalidArgumentException('non-nullable steps cannot be null');
+        }
+        $this->container['steps'] = $steps;
 
         return $this;
     }

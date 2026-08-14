@@ -1,6 +1,6 @@
 <?php
 /**
- * Author
+ * ReviewBulkResponseAllOfResultItems
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * Author Class Doc Comment
+ * ReviewBulkResponseAllOfResultItems Class Doc Comment
  *
  * @category Class
  * @package  Qase\APIClientV1
@@ -41,7 +41,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Author implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReviewBulkResponseAllOfResultItems implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Author';
+    protected static $openAPIModelName = 'ReviewBulkResponse_allOf_result_items';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'uuid' => 'string',
-        'authorId' => 'int',
-        'entityType' => 'string',
-        'entityId' => 'int',
-        'email' => 'string',
-        'name' => 'string',
-        'isActive' => 'bool'
+        'reviewId' => 'int',
+        'caseId' => 'int',
+        'error' => 'string'
     ];
 
     /**
@@ -76,14 +71,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'uuid' => 'uuid',
-        'authorId' => 'int64',
-        'entityType' => null,
-        'entityId' => 'int64',
-        'email' => null,
-        'name' => null,
-        'isActive' => null
+        'reviewId' => 'int64',
+        'caseId' => 'int64',
+        'error' => null
     ];
 
     /**
@@ -92,14 +82,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'uuid' => false,
-        'authorId' => false,
-        'entityType' => false,
-        'entityId' => false,
-        'email' => false,
-        'name' => false,
-        'isActive' => false
+        'reviewId' => true,
+        'caseId' => true,
+        'error' => true
     ];
 
     /**
@@ -188,14 +173,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'uuid' => 'uuid',
-        'authorId' => 'author_id',
-        'entityType' => 'entity_type',
-        'entityId' => 'entity_id',
-        'email' => 'email',
-        'name' => 'name',
-        'isActive' => 'is_active'
+        'reviewId' => 'review_id',
+        'caseId' => 'case_id',
+        'error' => 'error'
     ];
 
     /**
@@ -204,14 +184,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'uuid' => 'setUuid',
-        'authorId' => 'setAuthorId',
-        'entityType' => 'setEntityType',
-        'entityId' => 'setEntityId',
-        'email' => 'setEmail',
-        'name' => 'setName',
-        'isActive' => 'setIsActive'
+        'reviewId' => 'setReviewId',
+        'caseId' => 'setCaseId',
+        'error' => 'setError'
     ];
 
     /**
@@ -220,14 +195,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'uuid' => 'getUuid',
-        'authorId' => 'getAuthorId',
-        'entityType' => 'getEntityType',
-        'entityId' => 'getEntityId',
-        'email' => 'getEmail',
-        'name' => 'getName',
-        'isActive' => 'getIsActive'
+        'reviewId' => 'getReviewId',
+        'caseId' => 'getCaseId',
+        'error' => 'getError'
     ];
 
     /**
@@ -287,14 +257,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('uuid', $data ?? [], null);
-        $this->setIfExists('authorId', $data ?? [], null);
-        $this->setIfExists('entityType', $data ?? [], null);
-        $this->setIfExists('entityId', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('isActive', $data ?? [], null);
+        $this->setIfExists('reviewId', $data ?? [], null);
+        $this->setIfExists('caseId', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
     }
 
     /**
@@ -340,219 +305,103 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets reviewId
      *
      * @return int|null
      */
-    public function getId()
+    public function getReviewId()
     {
-        return $this->container['id'];
+        return $this->container['reviewId'];
     }
 
     /**
-     * Sets id
+     * Sets reviewId
      *
-     * @param int|null $id id
+     * @param int|null $reviewId ID of the created review. Null when the item failed.
      *
      * @return self
      */
-    public function setId($id)
+    public function setReviewId($reviewId)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($reviewId)) {
+            array_push($this->openAPINullablesSetToNull, 'reviewId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reviewId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['id'] = $id;
+        $this->container['reviewId'] = $reviewId;
 
         return $this;
     }
 
     /**
-     * Gets uuid
-     *
-     * @return string|null
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param string|null $uuid Author UUID. Use it to reference the author in other API methods.
-     *
-     * @return self
-     */
-    public function setUuid($uuid)
-    {
-        if (is_null($uuid)) {
-            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
-        }
-        $this->container['uuid'] = $uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets authorId
-     *
-     * @return int|null
-     * @deprecated
-     */
-    public function getAuthorId()
-    {
-        return $this->container['authorId'];
-    }
-
-    /**
-     * Sets authorId
-     *
-     * @param int|null $authorId Deprecated, use `uuid` instead.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setAuthorId($authorId)
-    {
-        if (is_null($authorId)) {
-            throw new \InvalidArgumentException('non-nullable authorId cannot be null');
-        }
-        $this->container['authorId'] = $authorId;
-
-        return $this;
-    }
-
-    /**
-     * Gets entityType
-     *
-     * @return string|null
-     */
-    public function getEntityType()
-    {
-        return $this->container['entityType'];
-    }
-
-    /**
-     * Sets entityType
-     *
-     * @param string|null $entityType entityType
-     *
-     * @return self
-     */
-    public function setEntityType($entityType)
-    {
-        if (is_null($entityType)) {
-            throw new \InvalidArgumentException('non-nullable entityType cannot be null');
-        }
-        $this->container['entityType'] = $entityType;
-
-        return $this;
-    }
-
-    /**
-     * Gets entityId
+     * Gets caseId
      *
      * @return int|null
      */
-    public function getEntityId()
+    public function getCaseId()
     {
-        return $this->container['entityId'];
+        return $this->container['caseId'];
     }
 
     /**
-     * Sets entityId
+     * Sets caseId
      *
-     * @param int|null $entityId entityId
+     * @param int|null $caseId The `case_id` submitted with the item, echoed back for correlation. Null for new-case draft reviews.
      *
      * @return self
      */
-    public function setEntityId($entityId)
+    public function setCaseId($caseId)
     {
-        if (is_null($entityId)) {
-            throw new \InvalidArgumentException('non-nullable entityId cannot be null');
+        if (is_null($caseId)) {
+            array_push($this->openAPINullablesSetToNull, 'caseId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('caseId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['entityId'] = $entityId;
+        $this->container['caseId'] = $caseId;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets error
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getError()
     {
-        return $this->container['email'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets email
+     * Sets error
      *
-     * @param string|null $email email
+     * @param string|null $error Failure reason. Null when the item was created.
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setError($error)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($error)) {
+            array_push($this->openAPINullablesSetToNull, 'error');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('error', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets isActive
-     *
-     * @return bool|null
-     */
-    public function getIsActive()
-    {
-        return $this->container['isActive'];
-    }
-
-    /**
-     * Sets isActive
-     *
-     * @param bool|null $isActive isActive
-     *
-     * @return self
-     */
-    public function setIsActive($isActive)
-    {
-        if (is_null($isActive)) {
-            throw new \InvalidArgumentException('non-nullable isActive cannot be null');
-        }
-        $this->container['isActive'] = $isActive;
+        $this->container['error'] = $error;
 
         return $this;
     }
