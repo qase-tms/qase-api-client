@@ -1,0 +1,99 @@
+composer.json
+  s_4e6213ef90d85e::t_77ef072bb8afe3 41
+composer.lock
+  s_4e6213ef90d85e::t_8a183ef7bca126 7
+docs/Api/AuthorsApi.md
+  s_4e6213ef90d85e::t_394157b854a649 42,56
+docs/Api/ReviewsApi.md
+  s_4e6213ef90d85e::t_4d72b00dd341cd 1-415
+docs/Model/Author.md
+  s_4e6213ef90d85e::t_548d6eac9fbcc3 8-9
+docs/Model/Review.md
+  s_4e6213ef90d85e::t_62ad5414228bd1 1-17
+docs/Model/ReviewBulk.md
+  s_4e6213ef90d85e::t_f3617e62ba282a 1-9
+docs/Model/ReviewBulkResponse.md
+  s_4e6213ef90d85e::t_089733401d29c0 1-10
+docs/Model/ReviewBulkResponseAllOfResult.md
+  s_4e6213ef90d85e::t_2a9e62eece5d8c 1-9
+docs/Model/ReviewBulkResponseAllOfResultItems.md
+  s_4e6213ef90d85e::t_c1f7521aa15a4b 1-11
+docs/Model/ReviewCaseData.md
+  s_4e6213ef90d85e::t_5670c7f5c9a4c0 1-30
+docs/Model/ReviewCreate.md
+  s_4e6213ef90d85e::t_5ef38170afeeab 1-11
+docs/Model/ReviewDetailed.md
+  s_4e6213ef90d85e::t_5561b31b05fcc7 1-18
+docs/Model/ReviewListResponse.md
+  s_4e6213ef90d85e::t_e7cf2162ccd9ac 1-10
+docs/Model/ReviewListResponseAllOfResult.md
+  s_4e6213ef90d85e::t_b8bd8098742d87 1-12
+docs/Model/ReviewProposedCase.md
+  s_4e6213ef90d85e::t_89e0cd936639b8 1-30
+docs/Model/ReviewProposedStep.md
+  s_4e6213ef90d85e::t_778ac4ee83802b 1-15
+docs/Model/ReviewResponse.md
+  s_4e6213ef90d85e::t_3b777e06afe235 1-10
+docs/Model/ReviewReviewersInner.md
+  s_4e6213ef90d85e::t_2e83e6ca369728 1-10
+docs/Model/ReviewStepData.md
+  s_4e6213ef90d85e::t_eb2b4481d4fb2a 1-15
+docs/Model/ReviewUpdate.md
+  s_4e6213ef90d85e::t_30261aed0dce79 1-10
+src/Api/AuthorsApi.php
+  s_4e6213ef90d85e::t_f8aa90f657c354 137,155,240,261,311
+src/Api/ReviewsApi.php
+  s_4e6213ef90d85e::t_86fa4283035263 1-2136
+src/Model/Author.php
+  s_4e6213ef90d85e::t_c5f1d9dc26bc72 62,80,96,192,208,224,291,369-395,400,410,413
+src/Model/Review.php
+  s_4e6213ef90d85e::t_2b01f37a34b469 1-773
+src/Model/ReviewBulk.php
+  s_4e6213ef90d85e::t_4cbb590c9af441 1-428
+src/Model/ReviewBulkResponse.php
+  s_4e6213ef90d85e::t_d7737fe0bbfe1c 1-444
+src/Model/ReviewBulkResponseAllOfResult.php
+  s_4e6213ef90d85e::t_dab1eca2d87614 1-410
+src/Model/ReviewBulkResponseAllOfResultItems.php
+  s_4e6213ef90d85e::t_b3045b09e6e189 1-499
+src/Model/ReviewCaseData.php
+  s_4e6213ef90d85e::t_5f6691a3652eed 1-1265
+src/Model/ReviewCreate.php
+  s_4e6213ef90d85e::t_f78d379e949a5d 1-496
+src/Model/ReviewDetailed.php
+  s_4e6213ef90d85e::t_c70f22015a686f 1-814
+src/Model/ReviewListResponse.php
+  s_4e6213ef90d85e::t_b2088f48bb28cc 1-444
+src/Model/ReviewListResponseAllOfResult.php
+  s_4e6213ef90d85e::t_0de1ed694806fd 1-512
+src/Model/ReviewProposedCase.php
+  s_4e6213ef90d85e::t_33c750ef23a91a 1-1258
+src/Model/ReviewProposedStep.php
+  s_4e6213ef90d85e::t_a8a68d925411b0 1-614
+src/Model/ReviewResponse.php
+  s_4e6213ef90d85e::t_d768992d30d948 1-444
+src/Model/ReviewReviewersInner.php
+  s_4e6213ef90d85e::t_24ef8ffda7fc9e 1-487
+src/Model/ReviewStepData.php
+  s_4e6213ef90d85e::t_2053d251f8f378 1-615
+src/Model/ReviewUpdate.php
+  s_4e6213ef90d85e::t_5e61b716d6ff72 1-452
+src/Model/TestStepCreate.php
+  s_4e6213ef90d85e::t_c91384a9a55e30 39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "513fd93094f2584c695f21a8e3174608a5c62b97",
+  "prompts": {},
+  "sessions": {
+    "s_4e6213ef90d85e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "94dad6f4-0859-498c-813b-bb752472d9ce",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}
