@@ -134,7 +134,7 @@ class AuthorsApi
      *
      * Get a specific author
      *
-     * @param  int $id Identifier. (required)
+     * @param  string $id Author UUID, or the deprecated integer author ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuthor'] to see the possible values for this operation
      *
      * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
@@ -152,7 +152,7 @@ class AuthorsApi
      *
      * Get a specific author
      *
-     * @param  int $id Identifier. (required)
+     * @param  string $id Author UUID, or the deprecated integer author ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuthor'] to see the possible values for this operation
      *
      * @throws \Qase\APIClientV1\ApiException on non-2xx response or if the response body is not in the expected format
@@ -237,7 +237,7 @@ class AuthorsApi
      *
      * Get a specific author
      *
-     * @param  int $id Identifier. (required)
+     * @param  string $id Author UUID, or the deprecated integer author ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuthor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -258,7 +258,7 @@ class AuthorsApi
      *
      * Get a specific author
      *
-     * @param  int $id Identifier. (required)
+     * @param  string $id Author UUID, or the deprecated integer author ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuthor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -308,7 +308,7 @@ class AuthorsApi
     /**
      * Create request for operation 'getAuthor'
      *
-     * @param  int $id Identifier. (required)
+     * @param  string $id Author UUID, or the deprecated integer author ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuthor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -1,6 +1,6 @@
 <?php
 /**
- * Author
+ * ReviewReviewersInner
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * Author Class Doc Comment
+ * ReviewReviewersInner Class Doc Comment
  *
  * @category Class
  * @package  Qase\APIClientV1
@@ -41,7 +41,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Author implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReviewReviewersInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Author';
+    protected static $openAPIModelName = 'Review_reviewers_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,8 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'uuid' => 'string',
-        'authorId' => 'int',
-        'entityType' => 'string',
-        'entityId' => 'int',
-        'email' => 'string',
-        'name' => 'string',
-        'isActive' => 'bool'
+        'authorUuid' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -76,14 +70,8 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'uuid' => 'uuid',
-        'authorId' => 'int64',
-        'entityType' => null,
-        'entityId' => 'int64',
-        'email' => null,
-        'name' => null,
-        'isActive' => null
+        'authorUuid' => 'uuid',
+        'status' => null
     ];
 
     /**
@@ -92,14 +80,8 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'uuid' => false,
-        'authorId' => false,
-        'entityType' => false,
-        'entityId' => false,
-        'email' => false,
-        'name' => false,
-        'isActive' => false
+        'authorUuid' => true,
+        'status' => false
     ];
 
     /**
@@ -188,14 +170,8 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'uuid' => 'uuid',
-        'authorId' => 'author_id',
-        'entityType' => 'entity_type',
-        'entityId' => 'entity_id',
-        'email' => 'email',
-        'name' => 'name',
-        'isActive' => 'is_active'
+        'authorUuid' => 'author_uuid',
+        'status' => 'status'
     ];
 
     /**
@@ -204,14 +180,8 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'uuid' => 'setUuid',
-        'authorId' => 'setAuthorId',
-        'entityType' => 'setEntityType',
-        'entityId' => 'setEntityId',
-        'email' => 'setEmail',
-        'name' => 'setName',
-        'isActive' => 'setIsActive'
+        'authorUuid' => 'setAuthorUuid',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -220,14 +190,8 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'uuid' => 'getUuid',
-        'authorId' => 'getAuthorId',
-        'entityType' => 'getEntityType',
-        'entityId' => 'getEntityId',
-        'email' => 'getEmail',
-        'name' => 'getName',
-        'isActive' => 'getIsActive'
+        'authorUuid' => 'getAuthorUuid',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -271,6 +235,23 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const STATUS_UNAPPROVED = 'unapproved';
+    public const STATUS_APPROVED = 'approved';
+    public const STATUS_CHANGES_REQUESTED = 'changes_requested';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_UNAPPROVED,
+            self::STATUS_APPROVED,
+            self::STATUS_CHANGES_REQUESTED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -287,14 +268,8 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('uuid', $data ?? [], null);
-        $this->setIfExists('authorId', $data ?? [], null);
-        $this->setIfExists('entityType', $data ?? [], null);
-        $this->setIfExists('entityId', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('isActive', $data ?? [], null);
+        $this->setIfExists('authorUuid', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -324,6 +299,15 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -340,219 +324,72 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
+     * Gets authorUuid
      *
      * @return string|null
      */
-    public function getUuid()
+    public function getAuthorUuid()
     {
-        return $this->container['uuid'];
+        return $this->container['authorUuid'];
     }
 
     /**
-     * Sets uuid
+     * Sets authorUuid
      *
-     * @param string|null $uuid Author UUID. Use it to reference the author in other API methods.
+     * @param string|null $authorUuid Author UUID of the reviewer (see `GET /author`).
      *
      * @return self
      */
-    public function setUuid($uuid)
+    public function setAuthorUuid($authorUuid)
     {
-        if (is_null($uuid)) {
-            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
+        if (is_null($authorUuid)) {
+            array_push($this->openAPINullablesSetToNull, 'authorUuid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('authorUuid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['uuid'] = $uuid;
+        $this->container['authorUuid'] = $authorUuid;
 
         return $this;
     }
 
     /**
-     * Gets authorId
-     *
-     * @return int|null
-     * @deprecated
-     */
-    public function getAuthorId()
-    {
-        return $this->container['authorId'];
-    }
-
-    /**
-     * Sets authorId
-     *
-     * @param int|null $authorId Deprecated, use `uuid` instead.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setAuthorId($authorId)
-    {
-        if (is_null($authorId)) {
-            throw new \InvalidArgumentException('non-nullable authorId cannot be null');
-        }
-        $this->container['authorId'] = $authorId;
-
-        return $this;
-    }
-
-    /**
-     * Gets entityType
+     * Gets status
      *
      * @return string|null
      */
-    public function getEntityType()
+    public function getStatus()
     {
-        return $this->container['entityType'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets entityType
+     * Sets status
      *
-     * @param string|null $entityType entityType
+     * @param string|null $status status
      *
      * @return self
      */
-    public function setEntityType($entityType)
+    public function setStatus($status)
     {
-        if (is_null($entityType)) {
-            throw new \InvalidArgumentException('non-nullable entityType cannot be null');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['entityType'] = $entityType;
-
-        return $this;
-    }
-
-    /**
-     * Gets entityId
-     *
-     * @return int|null
-     */
-    public function getEntityId()
-    {
-        return $this->container['entityId'];
-    }
-
-    /**
-     * Sets entityId
-     *
-     * @param int|null $entityId entityId
-     *
-     * @return self
-     */
-    public function setEntityId($entityId)
-    {
-        if (is_null($entityId)) {
-            throw new \InvalidArgumentException('non-nullable entityId cannot be null');
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['entityId'] = $entityId;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets isActive
-     *
-     * @return bool|null
-     */
-    public function getIsActive()
-    {
-        return $this->container['isActive'];
-    }
-
-    /**
-     * Sets isActive
-     *
-     * @param bool|null $isActive isActive
-     *
-     * @return self
-     */
-    public function setIsActive($isActive)
-    {
-        if (is_null($isActive)) {
-            throw new \InvalidArgumentException('non-nullable isActive cannot be null');
-        }
-        $this->container['isActive'] = $isActive;
+        $this->container['status'] = $status;
 
         return $this;
     }

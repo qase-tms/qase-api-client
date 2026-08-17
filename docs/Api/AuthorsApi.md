@@ -39,7 +39,7 @@ $apiInstance = new Qase\APIClientV1\Api\AuthorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Identifier.
+$id = 'id_example'; // string | Author UUID, or the deprecated integer author ID.
 
 try {
     $result = $apiInstance->getAuthor($id);
@@ -53,7 +53,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| Identifier. | |
+| **id** | **string**| Author UUID, or the deprecated integer author ID. | |
 
 ### Return type
 

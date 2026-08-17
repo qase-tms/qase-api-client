@@ -1,6 +1,6 @@
 <?php
 /**
- * Author
+ * ReviewCreate
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Qase\APIClientV1\ObjectSerializer;
 
 /**
- * Author Class Doc Comment
+ * ReviewCreate Class Doc Comment
  *
  * @category Class
  * @package  Qase\APIClientV1
@@ -41,7 +41,7 @@ use \Qase\APIClientV1\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Author implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReviewCreate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Author';
+    protected static $openAPIModelName = 'ReviewCreate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'uuid' => 'string',
-        'authorId' => 'int',
-        'entityType' => 'string',
-        'entityId' => 'int',
-        'email' => 'string',
-        'name' => 'string',
-        'isActive' => 'bool'
+        'proposedCase' => '\Qase\APIClientV1\Model\ReviewCaseData',
+        'caseId' => 'int',
+        'reviewers' => 'string[]'
     ];
 
     /**
@@ -76,14 +71,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'uuid' => 'uuid',
-        'authorId' => 'int64',
-        'entityType' => null,
-        'entityId' => 'int64',
-        'email' => null,
-        'name' => null,
-        'isActive' => null
+        'proposedCase' => null,
+        'caseId' => 'int64',
+        'reviewers' => 'uuid'
     ];
 
     /**
@@ -92,14 +82,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'uuid' => false,
-        'authorId' => false,
-        'entityType' => false,
-        'entityId' => false,
-        'email' => false,
-        'name' => false,
-        'isActive' => false
+        'proposedCase' => false,
+        'caseId' => true,
+        'reviewers' => false
     ];
 
     /**
@@ -188,14 +173,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'uuid' => 'uuid',
-        'authorId' => 'author_id',
-        'entityType' => 'entity_type',
-        'entityId' => 'entity_id',
-        'email' => 'email',
-        'name' => 'name',
-        'isActive' => 'is_active'
+        'proposedCase' => 'proposed_case',
+        'caseId' => 'case_id',
+        'reviewers' => 'reviewers'
     ];
 
     /**
@@ -204,14 +184,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'uuid' => 'setUuid',
-        'authorId' => 'setAuthorId',
-        'entityType' => 'setEntityType',
-        'entityId' => 'setEntityId',
-        'email' => 'setEmail',
-        'name' => 'setName',
-        'isActive' => 'setIsActive'
+        'proposedCase' => 'setProposedCase',
+        'caseId' => 'setCaseId',
+        'reviewers' => 'setReviewers'
     ];
 
     /**
@@ -220,14 +195,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'uuid' => 'getUuid',
-        'authorId' => 'getAuthorId',
-        'entityType' => 'getEntityType',
-        'entityId' => 'getEntityId',
-        'email' => 'getEmail',
-        'name' => 'getName',
-        'isActive' => 'getIsActive'
+        'proposedCase' => 'getProposedCase',
+        'caseId' => 'getCaseId',
+        'reviewers' => 'getReviewers'
     ];
 
     /**
@@ -287,14 +257,9 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('uuid', $data ?? [], null);
-        $this->setIfExists('authorId', $data ?? [], null);
-        $this->setIfExists('entityType', $data ?? [], null);
-        $this->setIfExists('entityId', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('isActive', $data ?? [], null);
+        $this->setIfExists('proposedCase', $data ?? [], null);
+        $this->setIfExists('caseId', $data ?? [], null);
+        $this->setIfExists('reviewers', $data ?? [], null);
     }
 
     /**
@@ -324,6 +289,13 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['proposedCase'] === null) {
+            $invalidProperties[] = "'proposedCase' can't be null";
+        }
+        if (!is_null($this->container['reviewers']) && (count($this->container['reviewers']) > 20)) {
+            $invalidProperties[] = "invalid value for 'reviewers', number of items must be less than or equal to 20.";
+        }
+
         return $invalidProperties;
     }
 
@@ -340,219 +312,93 @@ class Author implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets proposedCase
+     *
+     * @return \Qase\APIClientV1\Model\ReviewCaseData
+     */
+    public function getProposedCase()
+    {
+        return $this->container['proposedCase'];
+    }
+
+    /**
+     * Sets proposedCase
+     *
+     * @param \Qase\APIClientV1\Model\ReviewCaseData $proposedCase For `create` reviews `title` and all required project fields are required. For `edit` reviews send only the fields the proposal changes.
+     *
+     * @return self
+     */
+    public function setProposedCase($proposedCase)
+    {
+        if (is_null($proposedCase)) {
+            throw new \InvalidArgumentException('non-nullable proposedCase cannot be null');
+        }
+        $this->container['proposedCase'] = $proposedCase;
+
+        return $this;
+    }
+
+    /**
+     * Gets caseId
      *
      * @return int|null
      */
-    public function getId()
+    public function getCaseId()
     {
-        return $this->container['id'];
+        return $this->container['caseId'];
     }
 
     /**
-     * Sets id
+     * Sets caseId
      *
-     * @param int|null $id id
+     * @param int|null $caseId ID of the reviewed test case. When present an `edit` review is created, otherwise a `create` review with a new-case draft.
      *
      * @return self
      */
-    public function setId($id)
+    public function setCaseId($caseId)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($caseId)) {
+            array_push($this->openAPINullablesSetToNull, 'caseId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('caseId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['id'] = $id;
+        $this->container['caseId'] = $caseId;
 
         return $this;
     }
 
     /**
-     * Gets uuid
+     * Gets reviewers
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getUuid()
+    public function getReviewers()
     {
-        return $this->container['uuid'];
+        return $this->container['reviewers'];
     }
 
     /**
-     * Sets uuid
+     * Sets reviewers
      *
-     * @param string|null $uuid Author UUID. Use it to reference the author in other API methods.
+     * @param string[]|null $reviewers Author UUIDs of team members to assign as reviewers (see `GET /author`).
      *
      * @return self
      */
-    public function setUuid($uuid)
+    public function setReviewers($reviewers)
     {
-        if (is_null($uuid)) {
-            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
+        if (is_null($reviewers)) {
+            throw new \InvalidArgumentException('non-nullable reviewers cannot be null');
         }
-        $this->container['uuid'] = $uuid;
 
-        return $this;
-    }
-
-    /**
-     * Gets authorId
-     *
-     * @return int|null
-     * @deprecated
-     */
-    public function getAuthorId()
-    {
-        return $this->container['authorId'];
-    }
-
-    /**
-     * Sets authorId
-     *
-     * @param int|null $authorId Deprecated, use `uuid` instead.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setAuthorId($authorId)
-    {
-        if (is_null($authorId)) {
-            throw new \InvalidArgumentException('non-nullable authorId cannot be null');
+        if ((count($reviewers) > 20)) {
+            throw new \InvalidArgumentException('invalid value for $reviewers when calling ReviewCreate., number of items must be less than or equal to 20.');
         }
-        $this->container['authorId'] = $authorId;
-
-        return $this;
-    }
-
-    /**
-     * Gets entityType
-     *
-     * @return string|null
-     */
-    public function getEntityType()
-    {
-        return $this->container['entityType'];
-    }
-
-    /**
-     * Sets entityType
-     *
-     * @param string|null $entityType entityType
-     *
-     * @return self
-     */
-    public function setEntityType($entityType)
-    {
-        if (is_null($entityType)) {
-            throw new \InvalidArgumentException('non-nullable entityType cannot be null');
-        }
-        $this->container['entityType'] = $entityType;
-
-        return $this;
-    }
-
-    /**
-     * Gets entityId
-     *
-     * @return int|null
-     */
-    public function getEntityId()
-    {
-        return $this->container['entityId'];
-    }
-
-    /**
-     * Sets entityId
-     *
-     * @param int|null $entityId entityId
-     *
-     * @return self
-     */
-    public function setEntityId($entityId)
-    {
-        if (is_null($entityId)) {
-            throw new \InvalidArgumentException('non-nullable entityId cannot be null');
-        }
-        $this->container['entityId'] = $entityId;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets isActive
-     *
-     * @return bool|null
-     */
-    public function getIsActive()
-    {
-        return $this->container['isActive'];
-    }
-
-    /**
-     * Sets isActive
-     *
-     * @param bool|null $isActive isActive
-     *
-     * @return self
-     */
-    public function setIsActive($isActive)
-    {
-        if (is_null($isActive)) {
-            throw new \InvalidArgumentException('non-nullable isActive cannot be null');
-        }
-        $this->container['isActive'] = $isActive;
+        $this->container['reviewers'] = $reviewers;
 
         return $this;
     }
