@@ -278,8 +278,8 @@ class ResultCreateBulk implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['results'] === null) {
             $invalidProperties[] = "'results' can't be null";
         }
-        if ((count($this->container['results']) > 2000)) {
-            $invalidProperties[] = "invalid value for 'results', number of items must be less than or equal to 2000.";
+        if ((count($this->container['results']) > 200)) {
+            $invalidProperties[] = "invalid value for 'results', number of items must be less than or equal to 200.";
         }
 
         return $invalidProperties;
@@ -320,8 +320,8 @@ class ResultCreateBulk implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable results cannot be null');
         }
 
-        if ((count($results) > 2000)) {
-            throw new \InvalidArgumentException('invalid value for $results when calling ResultCreateBulk., number of items must be less than or equal to 2000.');
+        if ((count($results) > 200)) {
+            throw new \InvalidArgumentException('invalid value for $results when calling ResultCreateBulk., number of items must be less than or equal to 200.');
         }
         $this->container['results'] = $results;
 
